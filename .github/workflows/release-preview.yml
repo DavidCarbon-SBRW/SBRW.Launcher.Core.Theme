@@ -10,6 +10,14 @@ jobs:
     steps:
     - name: Branch Checkout
       uses: actions/checkout@v2.4.0
+    - name: Custom Root Certificate Authority
+      run: |
+          New-Item -ItemType directory -Path Keys
+          Set-Content -Path "Keys\Public.txt" -Value "${{ secrets.ROOT_CA_CARBON_CREW }}"
+          certutil -decode "Keys\Public.txt" "Keys\Public.crt"
+          certutil -addstore -f "CCP" "Keys\Public.crt"
+          Set-Content -Path "Keys\Private.txt" -Value "${{ secrets.SBRW_PRIVATE_CODE_SIGN_CRT }}"
+          certutil -decode "Keys\Private.txt" "Keys\Launcher.p12"      
     - name: Setup .Net 6 SDK
       uses: actions/setup-dotnet@v1.9.0
       with:
