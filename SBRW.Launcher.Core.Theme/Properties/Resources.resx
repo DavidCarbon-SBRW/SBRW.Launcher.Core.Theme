@@ -112,12 +112,12 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Background_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_Login.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -132,12 +132,6 @@
   </data>
   <data name="Background_USXE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_USXE.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BootFlow.gfx" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BootScreen\BootFlow.gfx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Cursor.ani" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cursors\Cursor.ani;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="email_error_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inputs\email_error_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -345,8 +339,5 @@
   </data>
   <data name="ticket_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inputs\ticket_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="UserSettings.xml" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UserSettings\UserSettings.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

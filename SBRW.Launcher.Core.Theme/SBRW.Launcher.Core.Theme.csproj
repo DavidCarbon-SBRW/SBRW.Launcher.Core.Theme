@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0-windows;net45;net461;net472;net48</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows;net45</TargetFrameworks>
 	<UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<Version>0.0.1</Version>
@@ -28,17 +28,22 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <!-- Required: Include symbols files if Self-Hosted Nuget Feed does not support symbol packages -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\BootScreen\BootFlow.gfx" />
     <None Remove="Resources\Cursors\Cursor.ani" />
+    <None Remove="Resources\Fonts\DejaVuSans-Bold.ttf" />
+    <None Remove="Resources\Fonts\DejaVuSans.ttf" />
     <None Remove="Resources\UserSettings\UserSettings.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\BootScreen\BootFlow.gfx" />
     <EmbeddedResource Include="Resources\Cursors\Cursor.ani" />
+    <EmbeddedResource Include="Resources\Fonts\DejaVuSans-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\DejaVuSans.ttf" />
     <EmbeddedResource Include="Resources\UserSettings\UserSettings.xml" />
   </ItemGroup>
 

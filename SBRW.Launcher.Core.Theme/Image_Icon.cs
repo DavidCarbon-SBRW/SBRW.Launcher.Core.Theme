@@ -23,6 +23,14 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
+        public static Image Discord { get; set; } = Image_Converter.Value(Properties.Resources.social_discord);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Discord_Disabled { get; set; } = Image_Converter.Value(Properties.Resources.social_discord_disabled);
+        /// <summary>
+        /// 
+        /// </summary>
         public static Image Engine_Checking { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_checking);
         /// <summary>
         /// 
@@ -40,6 +48,22 @@ namespace SBRW.Launcher.Core.Theme
         /// 
         /// </summary>
         public static Image Engine_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_warning);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Facebook { get; set; } = Image_Converter.Value(Properties.Resources.social_facebook);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Facebook_Disabled { get; set; } = Image_Converter.Value(Properties.Resources.social_facebook_disabled);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Home { get; set; } = Image_Converter.Value(Properties.Resources.social_home_page);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Home_Disabled { get; set; } = Image_Converter.Value(Properties.Resources.social_home_page_disabled);
         /// <summary>
         /// 
         /// </summary>
@@ -164,6 +188,14 @@ namespace SBRW.Launcher.Core.Theme
         /// 
         /// </summary>
         public static Image Shield_Warning_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning_hover);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Twitter { get; set; } = Image_Converter.Value(Properties.Resources.social_twitter);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Twitter_Disabled { get; set; } = Image_Converter.Value(Properties.Resources.social_twitter_disabled);
     }
 }
 #endif

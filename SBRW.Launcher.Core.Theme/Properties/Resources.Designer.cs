@@ -113,26 +113,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] BootFlow_gfx {
-            get {
-                object obj = ResourceManager.GetObject("BootFlow.gfx", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Cursor_ani {
-            get {
-                object obj = ResourceManager.GetObject("Cursor.ani", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] email_error_text_border {
             get {
                 object obj = ResourceManager.GetObject("email_error_text_border", resourceCulture);
@@ -817,24 +797,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
             get {
                 object obj = ResourceManager.GetObject("ticket_text_border", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;Settings&gt;
-        ///    &lt;Debug&gt;
-        ///        &lt;PvEOpponent Type=&quot;int&quot;&gt;7&lt;/PvEOpponent&gt;
-        ///        &lt;SkipLogin Type=&quot;int&quot;&gt;0&lt;/SkipLogin&gt;
-        ///        &lt;WorldMapZoom Type=&quot;int&quot;&gt;55&lt;/WorldMapZoom&gt;
-        ///    &lt;/Debug&gt;
-        ///    &lt;Gadgets&gt;
-        ///        &lt;Settings Type=&quot;xml&quot;&gt;
-        ///            &lt;GadgetSettings&gt;
-        ///                &lt;GadgetParameters Name=&quot;WorldMap&quot; Visible=&quot;False&quot; WindowTitle=&quot;WorldMap&quot; Anchor=&quot;TOP_LEFT&quot; PositionX=&quot;56&quot; PositionY=&quot;85&quot; WindowWidth=&quot;912&quot; WindowHeight=&quot;513&quot; DockInMainWindow=&quot;True&quot; DockPositionX=&quot;56&quot; DockPositionY=&quot;85&quot; WindowWidthScal [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string UserSettings_xml {
-            get {
-                return ResourceManager.GetString("UserSettings.xml", resourceCulture);
             }
         }
     }
