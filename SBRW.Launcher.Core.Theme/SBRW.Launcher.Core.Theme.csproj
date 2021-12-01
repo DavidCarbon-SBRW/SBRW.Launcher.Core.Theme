@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-windows;net45;net461;net472;net48</TargetFrameworks>
+	<UseWindowsForms>true</UseWindowsForms>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Version>0.0.1</Version>
+    <Authors>Soapbox Race World - Launcher Division</Authors>
+    <Company>Soapbox Race World</Company>
+    <Description>A Game Launchers Theme Library built within .NET Standard-Framework</Description>
+    <Copyright>© Soapbox Race World</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Theme</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/DavidCarbon-SBRW/SBRW.Launcher.Core.Theme</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/DavidCarbon-SBRW/SBRW.Launcher.Core.Theme</PackageProjectUrl>
+    <PackageIcon>Logo_512.png</PackageIcon>
+    <PackageIconUrl />
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <!-- Required: Full Debugging -->
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <!-- Required: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Required: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <!-- Required: Include symbols files if Self-Hosted Nuget Feed does not support symbol packages -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\BootScreen\BootFlow.gfx" />
+    <None Remove="Resources\Cursors\Cursor.ani" />
+    <None Remove="Resources\UserSettings\UserSettings.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BootScreen\BootFlow.gfx" />
+    <EmbeddedResource Include="Resources\Cursors\Cursor.ani" />
+    <EmbeddedResource Include="Resources\UserSettings\UserSettings.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+    <ItemGroup>
+    <None Include="Resources\Icon\Logo_512.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+      <PackageReference Include="SixLabors.ImageSharp">
+        <Version>1.0.4</Version>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>
