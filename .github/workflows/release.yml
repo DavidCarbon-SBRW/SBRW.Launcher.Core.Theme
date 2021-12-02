@@ -39,11 +39,11 @@ jobs:
     - name: Restore Custom NuGet Packages
       run: dotnet restore --ignore-failed-sources
     - name: Build
-      run: dotnet build --configuration Release /p:Version=${steps.get_version.outputs.version-without-v}
+      run: dotnet build --configuration Release -p:Version=${steps.get_version.outputs.version-without-v}
     - name: Test
-      run: dotnet test --configuration Release /p:Version=${steps.get_version.outputs.version-without-v} --no-build
+      run: dotnet test --configuration Release -p:Version=${steps.get_version.outputs.version-without-v} --no-build
     - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${steps.get_version.outputs.version-without-v} --no-build --output .
+      run: dotnet pack --configuration Release -p:Version=${steps.get_version.outputs.version-without-v} --no-build --output .
     - name: Push
       run: dotnet nuget push SBRW.Launcher.Core.Theme.${steps.get_version.outputs.version-without-v}.nupkg --source ${env:NUGET_URL} --api-key ${env:GITHUB_TOKEN}
       env:
