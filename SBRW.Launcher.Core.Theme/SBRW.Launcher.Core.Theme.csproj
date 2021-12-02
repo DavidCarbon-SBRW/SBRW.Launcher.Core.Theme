@@ -4,7 +4,7 @@
     <TargetFrameworks>net6.0-windows;net45</TargetFrameworks>
 	<UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Version>0.0.2</Version>
+	<Version>0.0.3</Version>
     <Authors>Soapbox Race World - Launcher Division</Authors>
     <Company>Soapbox Race World</Company>
     <Description>A Game Launchers Theme Library built within .NET Standard-Framework</Description>
