@@ -167,15 +167,15 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Unknwon { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown);
+        public static Image Shield_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Unknwon_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_click);
+        public static Image Shield_Unknown_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_click);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Unknwon_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_hover);
+        public static Image Shield_Unknown_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_hover);
         /// <summary>
         /// 
         /// </summary>
