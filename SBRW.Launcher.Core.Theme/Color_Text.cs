@@ -25,5 +25,23 @@ namespace SBRW.Launcher.Core.Theme
         ///<summary>Orange</summary>
         ///<remarks>Color Bind</remarks>
         public static Color L_Eight { get; set; } = Color.FromArgb(230, 159, 0);
+        ///<summary>Status Color: Successful Green</summary>
+        /// <remarks>
+        /// RGB: 159, 193, 32<code></code>
+        /// HEX: 9FC120
+        /// </remarks>
+        public static Color S_Sucess { get; set; } = Color.FromArgb(159, 193, 32);
+        ///<summary>Status Color: Red</summary>
+        /// <remarks>
+        /// RGB: 254, 0, 0<code></code>
+        /// HEX: FE0000
+        /// </remarks>
+        public static Color S_Error { get; set; } = Color.FromArgb(254, 0, 0);
+        ///<summary>Status Color: Orange [Color Bind]</summary>
+        /// <remarks>
+        /// RGB: 230, 159, 0<code></code>
+        /// HEX: E69F00
+        /// </remarks>
+        public static Color S_Warning { get; set; } = Color.FromArgb(230, 159, 0);
     }
 }

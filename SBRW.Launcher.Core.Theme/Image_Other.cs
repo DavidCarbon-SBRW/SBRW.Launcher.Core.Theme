@@ -27,6 +27,14 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
+        public static Image Text_Border_Ticket { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Text_Border_Ticket_Error { get; set; } = Image_Converter.Value(Properties.Resources.ticket_error_text_border);
+        /// <summary>
+        /// 
+        /// </summary>
         public static Image Logo { get; set; } = Image_Converter.Value(Properties.Resources.logo_main);
         /// <summary>
         /// 
