@@ -19,11 +19,15 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Settings { get; set; } = Image_Converter.Value(Properties.Resources.Background_Settings);
+        public static Image Security_Center { get; set; } = Image_Converter.Value(Properties.Resources.Background_Settings);
         /// <summary>
         /// 
         /// </summary>
         public static Image Server_Information { get; set; } = Image_Converter.Value(Properties.Resources.Background_Social);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Settings { get; set; } = Image_Converter.Value(Properties.Resources.Background_Settings);
         /// <summary>
         /// 
         /// </summary>

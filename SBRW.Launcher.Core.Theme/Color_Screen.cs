@@ -22,6 +22,10 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
+        public static Color BG_Settings { get; set; } = BG_Global;
+        /// <summary>
+        /// 
+        /// </summary>
         public static Color BG_Security_Center { get; set; } = BG_Global;
         /// <summary>
         /// 
