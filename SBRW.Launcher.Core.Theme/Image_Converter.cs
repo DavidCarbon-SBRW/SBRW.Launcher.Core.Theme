@@ -12,7 +12,7 @@ namespace SBRW.Launcher.Core.Theme
         /// </summary>
         /// <param name="Quick_Bytes"></param>
         /// <returns>Valid Image</returns>
-#if NETFRAMEWORK || NET6_0_OR_GREATER
+#if NETFRAMEWORK || NET6_0_OR_GREATER && WINDOWS
         public static System.Drawing.Image Value(byte[] Quick_Bytes)
         {
             using (MemoryStream Live_Data = new MemoryStream(Quick_Bytes))

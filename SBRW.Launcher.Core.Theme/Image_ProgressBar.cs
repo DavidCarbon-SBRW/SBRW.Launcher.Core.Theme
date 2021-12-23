@@ -1,4 +1,4 @@
-﻿#if NETFRAMEWORK || NET6_0_OR_GREATER
+﻿#if NETFRAMEWORK || NET6_0_OR_GREATER && WINDOWS
 using System.Drawing;
 
 namespace SBRW.Launcher.Core.Theme
