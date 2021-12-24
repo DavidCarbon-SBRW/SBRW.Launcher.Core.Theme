@@ -113,9 +113,19 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] email_error_text_border {
+        public static byte[] DejaVuSans {
             get {
-                object obj = ResourceManager.GetObject("email_error_text_border", resourceCulture);
+                object obj = ResourceManager.GetObject("DejaVuSans", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] DejaVuSans_Bold {
+            get {
+                object obj = ResourceManager.GetObject("DejaVuSans_Bold", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -126,6 +136,16 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         public static byte[] email_text_border {
             get {
                 object obj = ResourceManager.GetObject("email_text_border", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] email_text_border_error {
+            get {
+                object obj = ResourceManager.GetObject("email_text_border_error", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -583,6 +603,56 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] information_window_outline {
+            get {
+                object obj = ResourceManager.GetObject("information_window_outline", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] information_window_outline_error {
+            get {
+                object obj = ResourceManager.GetObject("information_window_outline_error", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] information_window_outline_success {
+            get {
+                object obj = ResourceManager.GetObject("information_window_outline_success", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] information_window_outline_unknown {
+            get {
+                object obj = ResourceManager.GetObject("information_window_outline_unknown", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] information_window_outline_warning {
+            get {
+                object obj = ResourceManager.GetObject("information_window_outline_warning", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] logo_main {
             get {
                 object obj = ResourceManager.GetObject("logo_main", resourceCulture);
@@ -603,9 +673,9 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] password_error_text_border {
+        public static byte[] password_text_border {
             get {
-                object obj = ResourceManager.GetObject("password_error_text_border", resourceCulture);
+                object obj = ResourceManager.GetObject("password_text_border", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -613,9 +683,9 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] password_text_border {
+        public static byte[] password_text_border_error {
             get {
-                object obj = ResourceManager.GetObject("password_text_border", resourceCulture);
+                object obj = ResourceManager.GetObject("password_text_border_error", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -673,6 +743,46 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] progress_outline_complete {
+            get {
+                object obj = ResourceManager.GetObject("progress_outline_complete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] progress_outline_error {
+            get {
+                object obj = ResourceManager.GetObject("progress_outline_error", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] progress_outline_unknown {
+            get {
+                object obj = ResourceManager.GetObject("progress_outline_unknown", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] progress_outline_warning {
+            get {
+                object obj = ResourceManager.GetObject("progress_outline_warning", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] progress_preload {
             get {
                 object obj = ResourceManager.GetObject("progress_preload", resourceCulture);
@@ -696,6 +806,36 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         public static byte[] progress_warning {
             get {
                 object obj = ResourceManager.GetObject("progress_warning", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] server_banner {
+            get {
+                object obj = ResourceManager.GetObject("server_banner", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] server_banner_error_outline {
+            get {
+                object obj = ResourceManager.GetObject("server_banner_error_outline", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] server_banner_outline {
+            get {
+                object obj = ResourceManager.GetObject("server_banner_outline", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -783,9 +923,9 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] ticket_error_text_border {
+        public static byte[] ticket_text_border {
             get {
-                object obj = ResourceManager.GetObject("ticket_error_text_border", resourceCulture);
+                object obj = ResourceManager.GetObject("ticket_text_border", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -793,9 +933,9 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] ticket_text_border {
+        public static byte[] ticket_text_border_error {
             get {
-                object obj = ResourceManager.GetObject("ticket_text_border", resourceCulture);
+                object obj = ResourceManager.GetObject("ticket_text_border_error", resourceCulture);
                 return ((byte[])(obj));
             }
         }

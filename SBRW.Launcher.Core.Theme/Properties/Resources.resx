@@ -112,12 +112,12 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Background_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_Login.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -133,11 +133,17 @@
   <data name="Background_USXE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_USXE.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="email_error_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Inputs\email_error_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DejaVuSans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fonts\DejaVuSans.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DejaVuSans_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fonts\DejaVuSans-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="email_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inputs\email_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="email_text_border_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inputs\email_text_border_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="graybutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buttons\graybutton.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -274,17 +280,32 @@
   <data name="icon_shield_warning_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\icon_shield_warning_hover.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="information_window_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\information_window_outline.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="information_window_outline_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\information_window_outline_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="information_window_outline_success" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\information_window_outline_success.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="information_window_outline_unknown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\information_window_outline_unknown.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="information_window_outline_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\information_window_outline_warning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="logo_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo\logo_main.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="logo_splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo\logo_splash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="password_error_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Inputs\password_error_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="password_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inputs\password_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="password_text_border_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inputs\password_text_border_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="playbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buttons\playbutton.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -301,6 +322,18 @@
   <data name="progress_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProgressBars\progress_outline.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="progress_outline_complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProgressBars\progress_outline_complete.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="progress_outline_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProgressBars\progress_outline_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="progress_outline_unknown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProgressBars\progress_outline_unknown.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="progress_outline_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProgressBars\progress_outline_warning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="progress_preload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProgressBars\progress_preload.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -309,6 +342,15 @@
   </data>
   <data name="progress_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProgressBars\progress_warning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="server_banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\server_banner.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="server_banner_error_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\server_banner_error_outline.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="server_banner_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundAddons\server_banner_outline.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="social_discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\social_discord.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -334,10 +376,10 @@
   <data name="social_twitter_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\social_twitter_disabled.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ticket_error_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Inputs\ticket_error_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ticket_text_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inputs\ticket_text_border.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ticket_text_border_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inputs\ticket_text_border_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
