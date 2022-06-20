@@ -30,7 +30,7 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Color BG_Splash { get; set; } = Color.FromArgb(0, 0, 25);
+        public static Color BG_Splash { get; set; } = BG_Global;
         /// <summary>
         /// 
         /// </summary>
