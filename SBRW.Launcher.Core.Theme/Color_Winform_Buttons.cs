@@ -62,7 +62,7 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Color Green_BorderColorButton { get; set; } = Color.FromArgb(159, 193, 32);
+        public static Color Green_Border_Color { get; set; } = Color.FromArgb(159, 193, 32);
         /// <summary>
         /// 
         /// </summary>
