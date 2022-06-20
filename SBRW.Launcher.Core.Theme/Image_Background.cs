@@ -32,6 +32,10 @@ namespace SBRW.Launcher.Core.Theme
         /// 
         /// </summary>
         public static Image User_XML_Settings { get; set; } = Image_Converter.Value(Properties.Resources.Background_USXE);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Splash { get; set; } = Image_Converter.Value(Properties.Resources.Background_Splash);
     }
 }
 #endif

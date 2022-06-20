@@ -103,6 +103,16 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Background_Splash {
+            get {
+                object obj = ResourceManager.GetObject("Background_Splash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Background_USXE {
             get {
                 object obj = ResourceManager.GetObject("Background_USXE", resourceCulture);
