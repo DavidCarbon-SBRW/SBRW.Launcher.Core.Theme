@@ -11,11 +11,23 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Outline { get; set; } = Image_Converter.Value(Properties.Resources.progress_outline);
+        public static Image Complete_Outline { get; set; } = Image_Converter.Value(Properties.Resources.progress_outline_complete);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Success { get; set; } = Image_Converter.Value(Properties.Resources.progress_success);
+        public static Image Complete { get; set; } = Image_Converter.Value(Properties.Resources.progress_complete);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Checking_Outline { get; set; } = Image_Converter.Value(Properties.Resources.progress_outline);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Checking { get; set; } = Image_Converter.Value(Properties.Resources.progress_success);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Preload_Outline { get; set; } = Image_Converter.Value(Properties.Resources.progress_outline_unknown);
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +35,15 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
+        public static Image Warning_Outline { get; set; } = Image_Converter.Value(Properties.Resources.progress_outline_warning);
+        /// <summary>
+        /// 
+        /// </summary>
         public static Image Warning { get; set; } = Image_Converter.Value(Properties.Resources.progress_warning);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Image Error_Outline { get; set; } = Image_Converter.Value(Properties.Resources.progress_outline_error);
         /// <summary>
         /// 
         /// </summary>

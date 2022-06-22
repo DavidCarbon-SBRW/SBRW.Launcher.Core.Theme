@@ -733,6 +733,16 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] progress_complete {
+            get {
+                object obj = ResourceManager.GetObject("progress_complete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] progress_error {
             get {
                 object obj = ResourceManager.GetObject("progress_error", resourceCulture);

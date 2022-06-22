@@ -319,6 +319,9 @@
   <data name="playbutton_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buttons\playbutton_hover.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="progress_complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProgressBars\progress_complete.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="progress_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProgressBars\progress_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
