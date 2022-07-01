@@ -593,26 +593,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] icon_shield_warning_click {
-            get {
-                object obj = ResourceManager.GetObject("icon_shield_warning_click", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] icon_shield_warning_hover {
-            get {
-                object obj = ResourceManager.GetObject("icon_shield_warning_hover", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] information_window_outline {
             get {
                 object obj = ResourceManager.GetObject("information_window_outline", resourceCulture);

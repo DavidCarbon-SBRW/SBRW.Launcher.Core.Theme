@@ -277,12 +277,6 @@
   <data name="icon_shield_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\icon_shield_warning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="icon_shield_warning_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\icon_shield_warning_click.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="icon_shield_warning_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\icon_shield_warning_hover.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="information_window_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundAddons\information_window_outline.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
