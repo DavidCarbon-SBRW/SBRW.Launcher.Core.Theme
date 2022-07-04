@@ -123,26 +123,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] DejaVuSans {
-            get {
-                object obj = ResourceManager.GetObject("DejaVuSans", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] DejaVuSans_Bold {
-            get {
-                object obj = ResourceManager.GetObject("DejaVuSans_Bold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] email_text_border {
             get {
                 object obj = ResourceManager.GetObject("email_text_border", resourceCulture);
