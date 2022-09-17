@@ -23,16 +23,16 @@ namespace SBRW.Launcher.Core.Theme
         {
             if (!File.Exists(Image_Location))
             {
-                return null;
+                return default;
             }
             else
             {
-                FileStream The_Image = null;
+                FileStream The_Image = default;
 
                 try
                 {
                     The_Image = File.Open(Image_Location, FileMode.Open);
-                    Bitmap The_Viewer = null;
+                    Bitmap The_Viewer = default;
 
                     try
                     {
@@ -42,11 +42,11 @@ namespace SBRW.Launcher.Core.Theme
                     catch (Exception)
                     {
                         /* Error #2 */
-                        return null;
+                        return default;
                     }
                     finally
                     {
-                        if (The_Viewer != null)
+                        if (The_Viewer != default)
                         {
                             The_Viewer.Dispose();
                         }
@@ -54,11 +54,11 @@ namespace SBRW.Launcher.Core.Theme
                 }
                 catch (Exception)
                 {
-                    return null;
+                    return default;
                 }
                 finally
                 {
-                    if (The_Image != null)
+                    if (The_Image != default)
                     {
                         The_Image.Close();
                         The_Image.Dispose();
@@ -76,7 +76,7 @@ namespace SBRW.Launcher.Core.Theme
         /// Source: https://web.archive.org/web/20130208001434/http://tech.pro:80/tutorial/660/csharp-tutorial-convert-a-color-image-to-grayscale
         private static Bitmap GreyScale(Bitmap Image_Original)
         {
-            if (Image_Original != null)
+            if (Image_Original != default)
             {
                 try
                 {
@@ -84,7 +84,7 @@ namespace SBRW.Launcher.Core.Theme
                     Bitmap New_Bitmap = new Bitmap(Image_Original.Width, Image_Original.Height);
 
                     //Get a graphics object from the new image
-                    Graphics Custom_Graphics = null;
+                    Graphics Custom_Graphics = default;
                     try
                     {
                         Custom_Graphics = Graphics.FromImage(New_Bitmap);
@@ -95,7 +95,7 @@ namespace SBRW.Launcher.Core.Theme
                            {.11f, .11f, .11f, 0, 0}, new float[] {0, 0, 0, 1, 0}, new float[] {0, 0, 0, 0, 1} });
 
                         //create some image attributes
-                        ImageAttributes Image_Attributes = null;
+                        ImageAttributes Image_Attributes = default;
 
                         try
                         {
@@ -110,7 +110,7 @@ namespace SBRW.Launcher.Core.Theme
                         }
                         finally
                         {
-                            if (Image_Attributes != null)
+                            if (Image_Attributes != default)
                             {
                                 Image_Attributes.Dispose();
                             }
@@ -118,7 +118,7 @@ namespace SBRW.Launcher.Core.Theme
                     }
                     finally
                     {
-                        if (Custom_Graphics != null)
+                        if (Custom_Graphics != default)
                         {
                             //Dispose the Graphics object
                             Custom_Graphics.Dispose();
@@ -129,7 +129,7 @@ namespace SBRW.Launcher.Core.Theme
                 }
                 catch (Exception)
                 {
-                    return null;
+                    return default;
                 }
                 finally
                 {
@@ -138,7 +138,7 @@ namespace SBRW.Launcher.Core.Theme
             }
             else
             {
-                return null;
+                return default;
             }
         }
     }
