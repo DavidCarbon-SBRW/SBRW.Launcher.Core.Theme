@@ -713,26 +713,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] progress_complete {
-            get {
-                object obj = ResourceManager.GetObject("progress_complete", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] progress_error {
-            get {
-                object obj = ResourceManager.GetObject("progress_error", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] progress_outline {
             get {
                 object obj = ResourceManager.GetObject("progress_outline", resourceCulture);
@@ -776,36 +756,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         public static byte[] progress_outline_warning {
             get {
                 object obj = ResourceManager.GetObject("progress_outline_warning", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] progress_preload {
-            get {
-                object obj = ResourceManager.GetObject("progress_preload", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] progress_success {
-            get {
-                object obj = ResourceManager.GetObject("progress_success", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] progress_warning {
-            get {
-                object obj = ResourceManager.GetObject("progress_warning", resourceCulture);
                 return ((byte[])(obj));
             }
         }

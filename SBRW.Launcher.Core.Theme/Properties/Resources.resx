@@ -313,12 +313,6 @@
   <data name="playbutton_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buttons\playbutton_hover.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="progress_complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProgressBars\progress_complete.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="progress_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProgressBars\progress_error.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="progress_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProgressBars\progress_outline.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -333,15 +327,6 @@
   </data>
   <data name="progress_outline_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProgressBars\progress_outline_warning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="progress_preload" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProgressBars\progress_preload.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="progress_success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProgressBars\progress_success.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="progress_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProgressBars\progress_warning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="server_banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundAddons\server_banner.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
