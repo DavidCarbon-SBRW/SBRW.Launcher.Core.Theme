@@ -1,5 +1,4 @@
 ﻿#if NETFRAMEWORK || NET6_0_OR_GREATER && WINDOWS
-using System;
 using System.ComponentModel;
 //If you are using this code to build a Class Library Project instead of just adding it to a Form Project then you
 //will need to add a reference to System.Drawing and System.Windows.Forms for the next three Imports. You can do
@@ -20,23 +19,45 @@ namespace SBRW.Launcher.Core.Theme
     public class Control_ProgressBar : ProgressBar
     {
         /// <summary>
-        /// Draws an empty (Border) progress bar control that fills in horizontally.
+        /// Draws a Default Background (Border) progress bar control that fills in horizontally.
         /// </summary>
-        [Category("Appearance"), Description("Draws an empty (Border) progress bar control that fills in horizontally.")]
+        [Category("Appearance"), Description("Draws a Default Background (Border) progress bar control that fills in horizontally.")]
         [Browsable(true)]
-        public bool DrawHorizontalBar { get; set; }
+        public bool DrawHorizontalBarDefault { get; set; }
         /// <summary>
-        /// A single inset value to control the sizing of the inner Rectangle.
+        /// Draws a Custom Colored Background (Border) progress bar control that fills in horizontally.
         /// </summary>
-        [Category("Appearance"), Description("A single inset value to control the sizing of the inner Rectangle.")]
+        [Category("Appearance"), Description("Draws a Custom Colored Background (Border) progress bar control that fills in horizontally.")]
+        [Browsable(true)]
+        public bool DrawHorizontalBarCustomColor { get; set; }
+        /// <summary>
+        /// A single inset value to control the sizing of the Inner Rectangle.
+        /// </summary>
+        [Category("Appearance"), Description("A single inset value to control the sizing of the Inner Rectangle.")]
         [Browsable(true)]
         public int InnerRectangle { get; set; } = 2;
+        /// <summary>
+        /// Specifies the direction of a linear gradient of the Inner Rectangle.
+        /// </summary>
+        [Category("Appearance"), Description("Specifies the direction of a linear gradient of the Inner Rectangle.")]
+        [Browsable(true)]
+        public LinearGradientMode InnerRectangleLinearGradient { get; set; } = LinearGradientMode.Vertical;
+        /// <summary>
+        /// Gets or sets the background color for the ProgressBar.
+        /// </summary>
+        /// <returns>A <see cref="Color"/> that represents the background color of the ProgressBar.
+        /// The default <see cref="Color"/> is <see cref="Color.WhiteSmoke">WhiteSmoke</see></returns>
+        [Category("Appearance"), Description("Specifies the background color for the ProgressBar.")]
+        [Browsable(true)]
+        public Color OuterRectangleBackColor { get; set; } = Color.WhiteSmoke;
         /// <summary>
         /// Vanilla Progressbar, but allows custom colors
         /// </summary>
         public Control_ProgressBar()
         {
-            this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
+            base.TabStop = false;
+            this.UpdateStyles();
         }
         /// <summary>
         /// 
@@ -44,7 +65,7 @@ namespace SBRW.Launcher.Core.Theme
         /// <param name="pevent"></param>
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
-            // None... Helps control the flicker.
+            /* None... Helps control the flicker. */
         }
         /// <summary>
         /// 
@@ -56,25 +77,51 @@ namespace SBRW.Launcher.Core.Theme
             {
                 using (Graphics offscreen = Graphics.FromImage(offscreenImage))
                 {
-                    Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
-                    double scaleFactor = (((double)Value - (double)Minimum) / ((double)Maximum - (double)Minimum));
-
-                    if (ProgressBarRenderer.IsSupported && DrawHorizontalBar)
+                    /* */
+                    Rectangle Inner_Rectangle = new Rectangle(0, 0, this.Width, this.Height);
+                    /* */
+                    if (ProgressBarRenderer.IsSupported && DrawHorizontalBarDefault)
                     {
-                        ProgressBarRenderer.DrawHorizontalBar(offscreen, rect);
+                        ProgressBarRenderer.DrawHorizontalBar(offscreen, Inner_Rectangle);
                     }
-                    // Deflate inner rect.
-                    rect.Inflate(new Size(-InnerRectangle, -InnerRectangle)); 
-                    rect.Width = (int)(rect.Width * scaleFactor);
-                    // Can't draw rec with width of 0.
-                    if (rect.Width == 0)
+                    else if (DrawHorizontalBarDefault)
                     {
-                        rect.Width = 1;
+                        /* So the Programmer wants the Default ProgressBar Background but is not supported */
+                        DrawHorizontalBarCustomColor = true;
+                        /* Lets use a near-Default Color as a substitute */
+                        OuterRectangleBackColor = Color.WhiteSmoke;
                     }
-
-                    LinearGradientBrush brush = new LinearGradientBrush(rect, this.BackColor, this.ForeColor, LinearGradientMode.Vertical);
-                    offscreen.FillRectangle(brush, InnerRectangle, InnerRectangle, rect.Width, rect.Height);
-
+                    /* */
+                    if (DrawHorizontalBarCustomColor)
+                    {
+                        /* Draw the Background (Outer) Rectangle */
+                        Rectangle Outer_Rectangle = new Rectangle(0, 0, this.Width, this.Height);
+                        /* */
+                        Brush Outer_Rectangle_Background_Brush = new SolidBrush(OuterRectangleBackColor);
+                        /* */
+                        offscreen.FillRectangle(Outer_Rectangle_Background_Brush, Outer_Rectangle);
+                    }
+                    /* If Inner Rectangle Size is Less than Zero just set it to 0 */
+                    if (InnerRectangle < 0)
+                    {
+                        InnerRectangle = 0;
+                    }
+                    /* */
+                    double Scale_Factor = (((double)Value - (double)Minimum) / ((double)Maximum - (double)Minimum));
+                    /* Deflate Inner Rectangle so its Visually Smaller */
+                    Inner_Rectangle.Inflate(new Size(-InnerRectangle, -InnerRectangle));
+                    /* */
+                    Inner_Rectangle.Width = (int)(Inner_Rectangle.Width * Scale_Factor);
+                    /* Can't draw Rectangle with width of 0. */
+                    if (Inner_Rectangle.Width == 0)
+                    {
+                        Inner_Rectangle.Width = 1;
+                    }
+                    /* */
+                    LinearGradientBrush Inner_Brush = new LinearGradientBrush(Inner_Rectangle, this.BackColor, this.ForeColor, InnerRectangleLinearGradient);
+                    /* */
+                    offscreen.FillRectangle(Inner_Brush, InnerRectangle, InnerRectangle, Inner_Rectangle.Width, Inner_Rectangle.Height);
+                    /* */
                     Live_Control.Graphics.DrawImage(offscreenImage, 0, 0);
                 }
             }
