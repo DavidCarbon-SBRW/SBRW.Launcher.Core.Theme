@@ -36,7 +36,9 @@ namespace SBRW.Launcher.Core.Theme
         /// </summary>
         public Control_ProgressBar()
         {
-            this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
+            base.TabStop = false;
+            this.UpdateStyles();
         }
         /// <summary>
         /// 
@@ -87,8 +89,6 @@ namespace SBRW.Launcher.Core.Theme
                     Live_Control.Graphics.DrawImage(offscreenImage, 0, 0);
                 }
             }
-
-            this.Invalidate();
         }
     }
 }
