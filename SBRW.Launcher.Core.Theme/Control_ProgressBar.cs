@@ -68,7 +68,7 @@ namespace SBRW.Launcher.Core.Theme
 
                     if (Value == Maximum)
                     {
-                        rect.Width = rect.Width - 2 * InnerRectangle;
+                        rect.Width = rect.Width * InnerRectangle;
                     }
                     else
                     {
@@ -87,6 +87,8 @@ namespace SBRW.Launcher.Core.Theme
                     Live_Control.Graphics.DrawImage(offscreenImage, 0, 0);
                 }
             }
+
+            this.Invalidate();
         }
     }
 }
