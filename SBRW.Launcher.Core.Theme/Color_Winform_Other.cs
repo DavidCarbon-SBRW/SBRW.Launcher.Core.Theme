@@ -76,36 +76,70 @@ namespace SBRW.Launcher.Core.Theme
         /// Silver
         /// </summary>
         public static Color Link_Settings_Active { get; set; } = Color.FromArgb(224, 224, 224);
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Color ProgressBar_Background { get; set; } = Color.FromArgb(22, 32, 42);
         ///<summary>Status Color: Pinging Blue</summary>
         /// <remarks>
         /// RGB: 66, 179, 189<code></code>
         /// HEX: 9FC120
         /// </remarks>
-        public static Color ProgressBar_Loading { get; set; } = Color.FromArgb(66, 179, 189);
+        public static Color ProgressBar_Loading_Top { get; set; } = Color.FromArgb(66, 179, 189);
+        ///<summary>Status Color: Pinging Blue Accent</summary>
+        /// <remarks>
+        /// RGB: 22, 75, 101<code></code>
+        /// HEX: 164B65
+        /// </remarks>
+        public static Color ProgressBar_Loading_Bottom { get; set; } = Color.FromArgb(22, 75, 101);
         ///<summary>Status Color: Grey</summary>
         /// <remarks>
-        /// RGB: 146, 146, 146)<code></code>
+        /// RGB: 146, 146, 146<code></code>
         /// HEX: 929292
         /// </remarks>
-        public static Color ProgressBar_Unknown { get; set; } = Color.FromArgb(146, 146, 146);
-        ///<summary>Status Color: Successful Green</summary>
+        public static Color ProgressBar_Unknown_Top { get; set; } = Color.FromArgb(146, 146, 146);
+        ///<summary>Status Color: Grey Accent</summary>
+        /// <remarks>
+        /// RGB: 87, 87, 87<code></code>
+        /// HEX: 575757
+        /// </remarks>
+        public static Color ProgressBar_Unknown_Bottom { get; set; } = Color.FromArgb(87, 87, 87);
+        ///<summary>Status Color: Successful Green Accent</summary>
         /// <remarks>
         /// RGB: 159, 193, 32<code></code>
-        /// HEX: 42B3BD
+        /// HEX: 9fc120
         /// </remarks>
-        public static Color ProgressBar_Sucess { get; set; } = Color.FromArgb(159, 193, 32);
-        ///<summary>Status Color: Red</summary>
+        public static Color ProgressBar_Sucess_Top { get; set; } = Color.FromArgb(159, 193, 32);
+        ///<summary>Status Color: Successful Green Accent</summary>
+        /// <remarks>
+        /// RGB: 159, 193, 32<code></code>
+        /// HEX: 779116
+        /// </remarks>
+        public static Color ProgressBar_Sucess_Bottom { get; set; } = Color.FromArgb(119, 145, 22);
+        ///<summary>Status Color: Red Accent</summary>
         /// <remarks>
         /// RGB: 254, 0, 0<code></code>
-        /// HEX: FE0000
+        /// HEX: fe0000
         /// </remarks>
-        public static Color ProgressBar_Error { get; set; } = Color.FromArgb(254, 0, 0);
-        ///<summary>Status Color: Orange [Color Bind]</summary>
+        public static Color ProgressBar_Error_Top { get; set; } = Color.FromArgb(254, 0, 0);
+        ///<summary>Status Color: Red Accent</summary>
+        /// <remarks>
+        /// RGB: 126, 56, 47<code></code>
+        /// HEX: 7E382F
+        /// </remarks>
+        public static Color ProgressBar_Error_Bottom { get; set; } = Color.FromArgb(126, 56, 47);
+        ///<summary>Status Color: Orange Accent [Color Bind]</summary>
         /// <remarks>
         /// RGB: 230, 159, 0<code></code>
         /// HEX: E69F00
         /// </remarks>
-        public static Color ProgressBar_Warning { get; set; } = Color.FromArgb(230, 159, 0);
+        public static Color ProgressBar_Warning_Top { get; set; } = Color.FromArgb(230, 159, 0);
+        ///<summary>Status Color: Orange Accent [Color Bind]</summary>
+        /// <remarks>
+        /// RGB: 255, 153, 0<code></code>
+        /// HEX: FF9900
+        /// </remarks>
+        public static Color ProgressBar_Warning_Bottom { get; set; } = Color.FromArgb(255, 153, 0);
         /// <summary>
         /// 
         /// </summary>
