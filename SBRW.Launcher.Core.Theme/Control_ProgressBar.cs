@@ -107,11 +107,16 @@ namespace SBRW.Launcher.Core.Theme
                         InnerRectangle = 0;
                     }
                     /* */
-                    int Scale_Factor = (int)(((double)Value - (double)Minimum) / ((double)Maximum - (double)Minimum));
+                    double Scale_Factor = (((double)Value - (double)Minimum) / ((double)Maximum - (double)Minimum));
                     /* Deflate Inner Rectangle so its Visually Smaller */
                     Inner_Rectangle.Inflate(new Size(-InnerRectangle, -InnerRectangle));
+                    /* */
+                    Inner_Rectangle.Width = (int)(Inner_Rectangle.Width * Scale_Factor);
                     /* Can't draw Rectangle with width of 0. */
-                    Inner_Rectangle.Width = Scale_Factor == 0 ? 1 : Scale_Factor;
+                    if (Inner_Rectangle.Width == 0)
+                    {
+                        Inner_Rectangle.Width = 1;
+                    }
                     /* */
                     LinearGradientBrush Inner_Brush = new LinearGradientBrush(Inner_Rectangle, this.BackColor, this.ForeColor, InnerRectangleLinearGradient);
                     /* */
