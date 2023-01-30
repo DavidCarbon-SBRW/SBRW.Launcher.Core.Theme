@@ -64,8 +64,17 @@ namespace SBRW.Launcher.Core.Theme
                         ProgressBarRenderer.DrawHorizontalBar(offscreen, rect);
                     }
                     // Deflate inner rect.
-                    rect.Inflate(new Size(-InnerRectangle, -InnerRectangle)); 
-                    rect.Width = (int)(rect.Width * scaleFactor);
+                    rect.Inflate(new Size(-InnerRectangle, -InnerRectangle));
+
+                    if (Value == Maximum)
+                    {
+                        rect.Width = rect.Width - 2 * InnerRectangle;
+                    }
+                    else
+                    {
+                        rect.Width = (int)((rect.Width - 2 * InnerRectangle) * scaleFactor);
+                    }
+
                     // Can't draw rec with width of 0.
                     if (rect.Width == 0)
                     {
