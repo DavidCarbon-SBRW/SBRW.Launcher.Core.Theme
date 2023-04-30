@@ -51,6 +51,13 @@ namespace SBRW.Launcher.Core.Theme
         [Browsable(true)]
         public Color OuterRectangleBackColor { get; set; } = Color.WhiteSmoke;
         /// <summary>
+        /// Gets or sets an ID that provides additional data about the ProgressBar.
+        /// </summary>
+        /// <returns>ID about the ProgressBar</returns>
+        [Category("Data"), Description("Specifies the ID for the ProgressBar.")]
+        [Browsable(true)]
+        public int ID { get; set; }
+        /// <summary>
         /// Vanilla Progressbar, but allows custom colors
         /// </summary>
         public Control_ProgressBar()

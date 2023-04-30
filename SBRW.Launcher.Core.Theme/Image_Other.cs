@@ -11,47 +11,47 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Email { get; set; } = Image_Converter.Value(Properties.Resources.email_text_border);
+        public static Image Text_Border_Email { get; set; } = Image_Converter.Value(Properties.Resources.email_text_border, 0);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Email_Error { get; set; } = Image_Converter.Value(Properties.Resources.email_text_border_error);
+        public static Image Text_Border_Email_Error { get; set; } = Image_Converter.Value(Properties.Resources.email_text_border_error, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Password { get; set; } = Image_Converter.Value(Properties.Resources.password_text_border);
+        public static Image Text_Border_Password { get; set; } = Image_Converter.Value(Properties.Resources.password_text_border, 0);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Password_Error { get; set; } = Image_Converter.Value(Properties.Resources.password_text_border_error);
+        public static Image Text_Border_Password_Error { get; set; } = Image_Converter.Value(Properties.Resources.password_text_border_error, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Ticket { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border);
+        public static Image Text_Border_Ticket { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border, 0);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Ticket_Error { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border_error);
+        public static Image Text_Border_Ticket_Error { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border_error, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Information_Window { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline);
+        public static Image Information_Window { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline, 0);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Information_Window_Error { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_error);
+        public static Image Information_Window_Error { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_error, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Information_Window_Success { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_success);
+        public static Image Information_Window_Success { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_success, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Information_Window_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_unknown);
+        public static Image Information_Window_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_unknown, 4);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Information_Window_Warning { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_warning);
+        public static Image Information_Window_Warning { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline_warning, 2);
         /// <summary>
         /// 
         /// </summary>
@@ -59,11 +59,11 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Server_Banner_Outline { get; set; } = Image_Converter.Value(Properties.Resources.server_banner_outline);
+        public static Image Server_Banner_Outline { get; set; } = Image_Converter.Value(Properties.Resources.server_banner_outline, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Server_Banner_Error_Outline { get; set; } = Image_Converter.Value(Properties.Resources.server_banner_error_outline);
+        public static Image Server_Banner_Error_Outline { get; set; } = Image_Converter.Value(Properties.Resources.server_banner_error_outline, 3);
         /// <summary>
         /// 
         /// </summary>

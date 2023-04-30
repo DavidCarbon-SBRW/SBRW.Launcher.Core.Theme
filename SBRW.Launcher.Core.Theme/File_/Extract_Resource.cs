@@ -19,7 +19,7 @@ namespace SBRW.Launcher.Core.Theme.File_
                     Assembly TheRun = Assembly.GetExecutingAssembly();
                     using (Stream LiveStream = TheRun.GetManifestResourceStream(File_Name))
                     {
-                        if (LiveStream == null)
+                        if (LiveStream == default)
                         {
                             return default;
                         }
