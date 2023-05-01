@@ -31,7 +31,7 @@ namespace SBRW.Launcher.Core.Theme
 
                 try
                 {
-                    The_Image = File.Open(Image_Location, FileMode.Open);
+                    The_Image = File.Open(Image_Location, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                     Bitmap The_Viewer = default;
 
                     try

@@ -14,42 +14,28 @@ namespace SBRW.Launcher.Core.Theme
     public class Font_Wrapper
     {
         /// <summary>
-        /// Launcher Primary Font
+        /// Launcher Regular Font
         /// </summary>
-        public static FontFamily Launcher_Font { get; set; }
+        public FontFamily Font_Regular { get; set; }
         /// <summary>
-        /// Launcher Secondary Font
+        /// Launcher Bold Font
         /// </summary>
-        public static FontFamily Launcher_Font_Bold { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public PrivateFontCollection MPrivateFontCollection { get; set; }
+        public FontFamily Font_Bold { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public Dictionary<string, int> MFontMapping { get; set; }
+        public PrivateFontCollection Private_Font_Collection { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public static Font_Wrapper Cached_Instance { get; set; } = new Font_Wrapper();
+        public Dictionary<string, int> Font_Mapping { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public static Font_Wrapper Instance
+        public Font_Wrapper()
         {
-            get
-            {
-                return Cached_Instance;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        private Font_Wrapper()
-        {
-            MPrivateFontCollection = new PrivateFontCollection();
-            MFontMapping = new Dictionary<string, int>();
+            Private_Font_Collection = new PrivateFontCollection();
+            Font_Mapping = new Dictionary<string, int>();
         }
         /// <summary>
         /// 
@@ -61,26 +47,26 @@ namespace SBRW.Launcher.Core.Theme
         {
             if (!string.IsNullOrWhiteSpace(Font_Name))
             {
-                if (MFontMapping.ContainsKey(Font_Name))
+                if (Font_Mapping.ContainsKey(Font_Name))
                 {
-                    return MPrivateFontCollection.Families[MFontMapping[Font_Name]];
+                    return Private_Font_Collection.Families[Font_Mapping[Font_Name]];
                 }
                 else
                 {
                     int num = LoadEmbeddedFont(Font_Name, ManifestResourceStream);
                     if (num >= 0)
                     {
-                        return MPrivateFontCollection.Families[num];
+                        return Private_Font_Collection.Families[num];
                     }
                     else
                     {
-                        return null;
+                        return default;
                     }
                 }
             }
             else
             {
-                return null;
+                return default;
             }
         }
         /// <summary>
@@ -89,21 +75,45 @@ namespace SBRW.Launcher.Core.Theme
         /// <param name="Font_Name"></param>
         /// <param name="ManifestResourceStream"></param>
         /// <returns></returns>
-        private int LoadEmbeddedFont(string Font_Name, Stream ManifestResourceStream = null)
+        public int LoadEmbeddedFont(string Font_Name, Stream ManifestResourceStream = null)
         {
-            if (ManifestResourceStream != null)
+            if (ManifestResourceStream != default)
             {
-                IntPtr intPtr = Marshal.AllocCoTaskMem((int)ManifestResourceStream.Length);
-                byte[] array = new byte[ManifestResourceStream.Length];
-                ManifestResourceStream.Read(array, 0, (int)ManifestResourceStream.Length);
-                Marshal.Copy(array, 0, intPtr, (int)ManifestResourceStream.Length);
-                uint num = 0u;
-                DLL_Font.AddFontMemResourceEx(intPtr, (uint)array.Length, IntPtr.Zero, ref num);
-                MPrivateFontCollection.AddMemoryFont(intPtr, (int)ManifestResourceStream.Length);
-                ManifestResourceStream.Close();
-                Marshal.FreeCoTaskMem(intPtr);
-                MFontMapping.Add(Font_Name, MPrivateFontCollection.Families.Length - 1);
-                return MPrivateFontCollection.Families.Length - 1;
+                IntPtr intPtr = IntPtr.Zero;
+
+                try
+                {
+                    intPtr = Marshal.AllocCoTaskMem((int)ManifestResourceStream.Length);
+                    byte[] array = new byte[ManifestResourceStream.Length];
+                    ManifestResourceStream.Read(array, 0, (int)ManifestResourceStream.Length);
+                    Marshal.Copy(array, 0, intPtr, (int)ManifestResourceStream.Length);
+                    uint num = 0u;
+                    DLL_Font.AddFontMemResourceEx(intPtr, (uint)array.Length, IntPtr.Zero, ref num);
+                    Private_Font_Collection.AddMemoryFont(intPtr, (int)ManifestResourceStream.Length);
+                    ManifestResourceStream.Close();
+                    ManifestResourceStream.Dispose();
+                    Marshal.FreeCoTaskMem(intPtr);
+                    intPtr = IntPtr.Zero;
+                    Font_Mapping.Add(Font_Name, Private_Font_Collection.Families.Length - 1);
+                    return Private_Font_Collection.Families.Length - 1;
+                }
+                catch
+                {
+                    return -1;
+                }
+                finally
+                {
+                    if (intPtr != IntPtr.Zero)
+                    {
+                        Marshal.FreeCoTaskMem(intPtr);
+                    }
+
+                    if (ManifestResourceStream != default)
+                    {
+                        ManifestResourceStream.Close();
+                        ManifestResourceStream.Dispose();
+                    }
+                }
             }
             else
             {

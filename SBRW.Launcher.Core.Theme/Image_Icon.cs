@@ -35,19 +35,19 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Engine_Error { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_error);
+        public static Image Engine_Error { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_error, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Engine_Good { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_success);
+        public static Image Engine_Good { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_success, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Engine_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_unknown);
+        public static Image Engine_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_unknown, 4);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Engine_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_warning);
+        public static Image Engine_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_engine_warning, 2);
         /// <summary>
         /// 
         /// </summary>
@@ -95,19 +95,19 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Plug_Offline { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_offline);
+        public static Image Plug_Offline { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_offline, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Plug_Online { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_online);
+        public static Image Plug_Online { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_online, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Plug_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_warning);
+        public static Image Plug_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_warning, 2);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Plug_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_unknown);
+        public static Image Plug_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_api_unknown, 4);
         /// <summary>
         /// 
         /// </summary>
@@ -115,19 +115,19 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Server_Offline { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_offline);
+        public static Image Server_Offline { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_offline, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Server_Online { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_online);
+        public static Image Server_Online { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_online, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Server_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_unknown);
+        public static Image Server_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_unknown, 4);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Server_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_warning);
+        public static Image Server_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_game_server_warning, 2);
         /// <summary>
         /// 
         /// </summary>
@@ -143,51 +143,51 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Error { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_error);
+        public static Image Shield_Error { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_error, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Error_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_error_click);
+        public static Image Shield_Error_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_error_click, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Error_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_error_hover);
+        public static Image Shield_Error_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_error_hover, 3);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Success { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_success);
+        public static Image Shield_Success { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_success, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Success_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_success_click);
+        public static Image Shield_Success_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_success_click, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Success_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_success_hover);
+        public static Image Shield_Success_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_success_hover, 1);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown);
+        public static Image Shield_Unknown { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown, 4);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Unknown_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_click);
+        public static Image Shield_Unknown_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_click, 4);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Unknown_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_hover);
+        public static Image Shield_Unknown_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_unknown_hover, 4);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning);
+        public static Image Shield_Warning { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning, 2);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Warning_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning_click);
+        public static Image Shield_Warning_Click { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning_click, 2);
         /// <summary>
         /// 
         /// </summary>
-        public static Image Shield_Warning_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning_hover);
+        public static Image Shield_Warning_Hover { get; set; } = Image_Converter.Value(Properties.Resources.icon_shield_warning_hover, 2);
         /// <summary>
         /// 
         /// </summary>
