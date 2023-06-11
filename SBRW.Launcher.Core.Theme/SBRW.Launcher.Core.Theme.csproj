@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net6.0-windows;net45</TargetFrameworks>
 	<UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Version>0.1.6</Version>
+	<Version>0.1.7</Version>
     <Authors>Soapbox Race World - Launcher Division</Authors>
     <Company>Soapbox Race World</Company>
     <Description>A Game Launchers Theme Library built within .NET Standard-Framework</Description>
@@ -62,7 +62,9 @@
   </ItemGroup>
   
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-      <PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.14" />
+      <PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.15" />
+      <PackageReference Include="Vanara.PInvoke.User32" Version="3.4.15" />
+      <PackageReference Include="Vanara.PInvoke.UxTheme" Version="3.4.15" />
     </ItemGroup>
   
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
