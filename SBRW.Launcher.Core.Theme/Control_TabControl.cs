@@ -7,7 +7,9 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Media;
 using System.Reflection;
+#if NETFRAMEWORK
 using System.Security.Permissions;
+#endif
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_;
@@ -78,7 +80,7 @@ namespace SBRW.Launcher.Core.Theme
             this.DoubleBuffered = false;
         }
         /// <summary>
-        /// 
+        /// The background color of the component
         /// </summary>
         [Browsable(true)]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -95,7 +97,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// Sets the background color to <see cref="Color.Empty"/>
         /// </summary>
         public new void ResetBackColor()
         {
@@ -110,7 +112,7 @@ namespace SBRW.Launcher.Core.Theme
             return !this.myBackColor.Equals((object)Color.Empty);
         }
         /// <summary>
-        /// 
+        /// The foreground color of this component, which is used to display text.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -125,6 +127,42 @@ namespace SBRW.Launcher.Core.Theme
                 base.ForeColor = value;
             }
         }
+        private bool m_HideTabs = false;
+        /// <summary>
+        /// Determines whether the Tabs Menu Bar and Outline is hidden
+        /// </summary>
+        [DefaultValue(false)]
+        [RefreshProperties(RefreshProperties.All)]
+        public bool TabsHide
+        {
+            get { return m_HideTabs; }
+            set
+            {
+                if (m_HideTabs == value) return;
+                m_HideTabs = value;
+                if (value == true) this.Multiline = true;
+                this.UpdateStyles();
+            }
+        }
+        /// <summary>
+        /// Indicates if more than one row of tabs is allowed
+        /// </summary>
+        [RefreshProperties(RefreshProperties.All)]
+        public new bool Multiline
+        {
+            get
+            {
+                if (this.TabsHide) return true;
+                return base.Multiline;
+            }
+            set
+            {
+                if (this.TabsHide)
+                    base.Multiline = true;
+                else
+                    base.Multiline = value;
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -132,32 +170,39 @@ namespace SBRW.Launcher.Core.Theme
         {
             get
             {
-                int num1 = 0;
-                if (this.Appearance == TabAppearance.Normal)
-                    num1 = 4;
-                int num2 = this.Alignment > TabAlignment.Bottom ? this.ItemSize.Width : this.ItemSize.Height;
-                int num3 = this.Appearance != TabAppearance.Normal ? (3 + num2) * this.RowCount : 5 + num2 * this.RowCount;
-                Rectangle rectangle;
-                switch (this.Alignment)
+                if (this.TabsHide)
                 {
-                    case TabAlignment.Bottom:
-                        rectangle = new Rectangle(num1, num1, this.Width - num1 * 2, this.Height - num3 - num1);
-                        break;
-                    case TabAlignment.Left:
-                        rectangle = new Rectangle(num3, num1, this.Width - num3 - num1, this.Height - num1 * 2);
-                        break;
-                    case TabAlignment.Right:
-                        rectangle = new Rectangle(num1, num1, this.Width - num3 - num1, this.Height - num1 * 2);
-                        break;
-                    default:
-                        rectangle = new Rectangle(num1, num3, this.Width - num1 * 2, this.Height - num3 - num1);
-                        break;
+                    return new Rectangle(0, 0, Width, Height);
                 }
-                return rectangle;
+                else
+                {
+                    int num1 = 0;
+                    if (this.Appearance == TabAppearance.Normal)
+                        num1 = 4;
+                    int num2 = this.Alignment > TabAlignment.Bottom ? this.ItemSize.Width : this.ItemSize.Height;
+                    int num3 = this.Appearance != TabAppearance.Normal ? (3 + num2) * this.RowCount : 5 + num2 * this.RowCount;
+                    Rectangle rectangle;
+                    switch (this.Alignment)
+                    {
+                        case TabAlignment.Bottom:
+                            rectangle = new Rectangle(num1, num1, this.Width - num1 * 2, this.Height - num3 - num1);
+                            break;
+                        case TabAlignment.Left:
+                            rectangle = new Rectangle(num3, num1, this.Width - num3 - num1, this.Height - num1 * 2);
+                            break;
+                        case TabAlignment.Right:
+                            rectangle = new Rectangle(num1, num1, this.Width - num3 - num1, this.Height - num1 * 2);
+                            break;
+                        default:
+                            rectangle = new Rectangle(num1, num3, this.Width - num1 * 2, this.Height - num3 - num1);
+                            break;
+                    }
+                    return rectangle;
+                }
             }
         }
         /// <summary>
-        /// 
+        /// Indicates whether the user or the system paints the captions.
         /// </summary>
         [DefaultValue(typeof(TabDrawMode), "Normal")]
         public new TabDrawMode DrawMode
@@ -174,7 +219,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// Indicates whether the tabs are painted as buttons or regular tabs.
         /// </summary>
         public new TabAppearance Appearance
         {
@@ -188,7 +233,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// The color of unselected tabs without Visual Style.
         /// </summary>
         [Description("The color of unselected tabs without Visual Style.")]
         [Category("Appearance")]
@@ -206,7 +251,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// The color of the selected tab without Visual Style.
         /// </summary>
         [Category("Appearance")]
         [Description("The color of the selected tab without Visual Style.")]
@@ -224,7 +269,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// The color of text on a tab which the mouse is over. Only applies if HotTrack is true.
         /// </summary>
         [DefaultValue(typeof(Color), "HotTrack")]
         [Description("The color of text on a tab which the mouse is over. Only applies if HotTrack is true.")]
@@ -242,7 +287,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// Sets DoubleBuffer on TabPages to help with flicker. Should only be set if using transparency.
         /// </summary>
         [Category("Behavior")]
         [Description("Sets DoubleBuffer on TabPages to help with flicker. Should only be set if using transparency.")]
@@ -264,7 +309,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// Gets/sets whether or not the BackColor should be painted behind tabs.
         /// </summary>
         [DefaultValue(false)]
         [Category("Appearance")]
@@ -282,7 +327,7 @@ namespace SBRW.Launcher.Core.Theme
             }
         }
         /// <summary>
-        /// 
+        /// Gets/sets whether or not a tabs Image should be rotated with the tab.
         /// </summary>
         [Description("Gets/sets whether or not a tabs Image should be rotated with the tab.")]
         [Category("Appearance")]
@@ -703,6 +748,7 @@ namespace SBRW.Launcher.Core.Theme
             }
             base.OnKeyDown(e);
         }
+#if NETFRAMEWORK
         /// <summary>
         /// 
         /// </summary>
@@ -733,6 +779,7 @@ namespace SBRW.Launcher.Core.Theme
             }
             base.WndProc(ref m);
         }
+#endif
         /// <summary>
         /// 
         /// </summary>
@@ -742,7 +789,6 @@ namespace SBRW.Launcher.Core.Theme
         {
             if (id == -1)
                 return;
-            int alignment = (int)this.Alignment;
             Bitmap tabBaseBitmap = this.CreateTabBaseBitmap(id);
             Rectangle rect = new Rectangle(Point.Empty, tabBaseBitmap.Size);
             using (Graphics graphics1 = Graphics.FromImage((Image)tabBaseBitmap))
@@ -1427,13 +1473,7 @@ namespace SBRW.Launcher.Core.Theme
         /// <param name="textColor"></param>
         /// <param name="bounds"></param>
         /// <param name="flags"></param>
-        private static void GdiDrawStateText(
-          IntPtr hdc,
-          string text,
-          Font font,
-          Color textColor,
-          Rectangle bounds,
-          int flags)
+        private static void GdiDrawStateText(IntPtr hdc, string text, Font font, Color textColor, Rectangle bounds, int flags)
         {
             IntPtr hfont = font.ToHfont();
             IntPtr hgdiobj = hdc.ObjectSelect(hfont);

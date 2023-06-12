@@ -28,7 +28,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.UxTheme_
 #else
         [DllImport(nameof(UxTheme))]
 #endif
-        public static extern int SetWindowTheme(IntPtr hwnd, [MarshalAs(UnmanagedType.LPWStr)] string pszSubAppName, [MarshalAs(UnmanagedType.LPWStr)] string pszSubIdList);
+        internal static extern int SetWindowTheme(IntPtr hwnd, [MarshalAs(UnmanagedType.LPWStr)] string pszSubAppName, [MarshalAs(UnmanagedType.LPWStr)] string pszSubIdList);
         /// <summary>
         /// Causes a window to use a different set of visual style information than its class normally uses.
         /// </summary>
@@ -55,7 +55,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.UxTheme_
 #else
         [DllImport(nameof(UxTheme))]
 #endif
-        public static extern IntPtr GetWindowTheme(IntPtr hWnd);
+        internal static extern IntPtr GetWindowTheme(IntPtr hWnd);
         /// <summary>
         /// Retrieves a theme handle to a window that has visual styles applied.
         /// </summary>

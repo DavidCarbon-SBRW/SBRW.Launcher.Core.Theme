@@ -161,230 +161,902 @@ namespace SBRW.Launcher.Core.Theme.Required.Flags_
         /// </summary>
         public enum WinMessage
         {
+            /// <summary>
+            /// 
+            /// </summary>
             NULL = 0,
+            /// <summary>
+            /// 
+            /// </summary>
             CREATE = 1,
+            /// <summary>
+            /// 
+            /// </summary>
             DESTROY = 2,
+            /// <summary>
+            /// 
+            /// </summary>
             MOVE = 3,
+            /// <summary>
+            /// 
+            /// </summary>
             SIZE = 5,
+            /// <summary>
+            /// 
+            /// </summary>
             ACTIVATE = 6,
+            /// <summary>
+            /// 
+            /// </summary>
             SETFOCUS = 7,
+            /// <summary>
+            /// 0x0000000A
+            /// </summary>
             KILLFOCUS = 8,
-            ENABLE = 10, // 0x0000000A
-            SETREDRAW = 11, // 0x0000000B
-            SETTEXT = 12, // 0x0000000C
-            GETTEXT = 13, // 0x0000000D
-            GETTEXTLENGTH = 14, // 0x0000000E
-            PAINT = 15, // 0x0000000F
-            CLOSE = 16, // 0x00000010
-            QUERYENDSESSION = 17, // 0x00000011
-            QUIT = 18, // 0x00000012
-            QUERYOPEN = 19, // 0x00000013
-            ERASEBKGND = 20, // 0x00000014
-            SYSCOLORCHANGE = 21, // 0x00000015
-            ENDSESSION = 22, // 0x00000016
-            SHOWWINDOW = 24, // 0x00000018
-            SETTINGCHANGE = 26, // 0x0000001A
-            WININICHANGE = 26, // 0x0000001A
-            DEVMODECHANGE = 27, // 0x0000001B
-            ACTIVATEAPP = 28, // 0x0000001C
-            FONTCHANGE = 29, // 0x0000001D
-            TIMECHANGE = 30, // 0x0000001E
-            CANCELMODE = 31, // 0x0000001F
-            SETCURSOR = 32, // 0x00000020
-            MOUSEACTIVATE = 33, // 0x00000021
-            CHILDACTIVATE = 34, // 0x00000022
-            QUEUESYNC = 35, // 0x00000023
-            GETMINMAXINFO = 36, // 0x00000024
-            PAINTICON = 38, // 0x00000026
-            ICONERASEBKGND = 39, // 0x00000027
-            NEXTDLGCTL = 40, // 0x00000028
-            SPOOLERSTATUS = 42, // 0x0000002A
-            DRAWITEM = 43, // 0x0000002B
-            MEASUREITEM = 44, // 0x0000002C
-            DELETEITEM = 45, // 0x0000002D
-            VKEYTOITEM = 46, // 0x0000002E
-            CHARTOITEM = 47, // 0x0000002F
-            SETFONT = 48, // 0x00000030
-            GETFONT = 49, // 0x00000031
-            SETHOTKEY = 50, // 0x00000032
-            GETHOTKEY = 51, // 0x00000033
-            QUERYDRAGICON = 55, // 0x00000037
-            COMPAREITEM = 57, // 0x00000039
-            GETOBJECT = 61, // 0x0000003D
-            COMPACTING = 65, // 0x00000041
-            COMMNOTIFY = 68, // 0x00000044
-            WINDOWPOSCHANGING = 70, // 0x00000046
-            WINDOWPOSCHANGED = 71, // 0x00000047
-            COPYDATA = 74, // 0x0000004A
-            CANCELJOURNAL = 75, // 0x0000004B
-            NOTIFY = 78, // 0x0000004E
-            INPUTLANGCHANGEREQUEST = 80, // 0x00000050
-            INPUTLANGCHANGE = 81, // 0x00000051
-            TCARD = 82, // 0x00000052
-            HELP = 83, // 0x00000053
-            USERCHANGED = 84, // 0x00000054
-            NOTIFYFORMAT = 85, // 0x00000055
-            CONTEXTMENU = 123, // 0x0000007B
-            STYLECHANGING = 124, // 0x0000007C
-            STYLECHANGED = 125, // 0x0000007D
-            DISPLAYCHANGE = 126, // 0x0000007E
-            GETICON = 127, // 0x0000007F
-            SETICON = 128, // 0x00000080
-            NCCREATE = 129, // 0x00000081
-            NCDESTROY = 130, // 0x00000082
-            NCCALCSIZE = 131, // 0x00000083
-            NCHITTEST = 132, // 0x00000084
-            NCPAINT = 133, // 0x00000085
-            NCACTIVATE = 134, // 0x00000086
-            GETDLGCODE = 135, // 0x00000087
-            SYNCPAINT = 136, // 0x00000088
-            NCMOUSEMOVE = 160, // 0x000000A0
-            NCLBUTTONDOWN = 161, // 0x000000A1
-            NCLBUTTONUP = 162, // 0x000000A2
-            NCLBUTTONDBLCLK = 163, // 0x000000A3
-            NCRBUTTONDOWN = 164, // 0x000000A4
-            NCRBUTTONUP = 165, // 0x000000A5
-            NCRBUTTONDBLCLK = 166, // 0x000000A6
-            NCMBUTTONDOWN = 167, // 0x000000A7
-            NCMBUTTONUP = 168, // 0x000000A8
-            NCMBUTTONDBLCLK = 169, // 0x000000A9
-            NCXBUTTONDOWN = 171, // 0x000000AB
-            NCXBUTTONUP = 172, // 0x000000AC
-            NCXBUTTONDBLCLK = 173, // 0x000000AD
-            INPUT = 255, // 0x000000FF
-            KEYDOWN = 256, // 0x00000100
-            KEYFIRST = 256, // 0x00000100
-            KEYUP = 257, // 0x00000101
-            CHAR = 258, // 0x00000102
-            DEADCHAR = 259, // 0x00000103
-            SYSKEYDOWN = 260, // 0x00000104
-            SYSKEYUP = 261, // 0x00000105
-            SYSCHAR = 262, // 0x00000106
-            SYSDEADCHAR = 263, // 0x00000107
-            KEYLAST = 264, // 0x00000108
-            KEYLAST_XP = 265, // 0x00000109
-            UNICHAR = 265, // 0x00000109
-            IME_STARTCOMPOSITION = 269, // 0x0000010D
-            IME_ENDCOMPOSITION = 270, // 0x0000010E
-            IME_COMPOSITION = 271, // 0x0000010F
-            IME_KEYLAST = 271, // 0x0000010F
-            INITDIALOG = 272, // 0x00000110
-            COMMAND = 273, // 0x00000111
-            SYSCOMMAND = 274, // 0x00000112
-            TIMER = 275, // 0x00000113
-            HSCROLL = 276, // 0x00000114
-            VSCROLL = 277, // 0x00000115
-            INITMENU = 278, // 0x00000116
-            INITMENUPOPUP = 279, // 0x00000117
-            MENUSELECT = 287, // 0x0000011F
-            MENUCHAR = 288, // 0x00000120
-            ENTERIDLE = 289, // 0x00000121
-            MENURBUTTONUP = 290, // 0x00000122
-            MENUDRAG = 291, // 0x00000123
-            MENUGETOBJECT = 292, // 0x00000124
-            UNINITMENUPOPUP = 293, // 0x00000125
-            MENUCOMMAND = 294, // 0x00000126
-            CHANGEUISTATE = 295, // 0x00000127
-            UPDATEUISTATE = 296, // 0x00000128
-            QUERYUISTATE = 297, // 0x00000129
-            CTLCOLORMSGBOX = 306, // 0x00000132
-            CTLCOLOREDIT = 307, // 0x00000133
-            CTLCOLORLISTBOX = 308, // 0x00000134
-            CTLCOLORBTN = 309, // 0x00000135
-            CTLCOLORDLG = 310, // 0x00000136
-            CTLCOLORSCROLLBAR = 311, // 0x00000137
-            CTLCOLORSTATIC = 312, // 0x00000138
-            MOUSEFIRST = 512, // 0x00000200
-            MOUSEMOVE = 512, // 0x00000200
-            LBUTTONDOWN = 513, // 0x00000201
-            LBUTTONUP = 514, // 0x00000202
-            LBUTTONDBLCLK = 515, // 0x00000203
-            RBUTTONDOWN = 516, // 0x00000204
-            RBUTTONUP = 517, // 0x00000205
-            RBUTTONDBLCLK = 518, // 0x00000206
-            MBUTTONDOWN = 519, // 0x00000207
-            MBUTTONUP = 520, // 0x00000208
-            MBUTTONDBLCLK = 521, // 0x00000209
-            MOUSELAST = 521, // 0x00000209
-            MOUSELAST_NT = 522, // 0x0000020A
-            MOUSEWHEEL = 522, // 0x0000020A
-            XBUTTONDOWN = 523, // 0x0000020B
-            XBUTTONUP = 524, // 0x0000020C
-            MOUSELAST_2K = 525, // 0x0000020D
-            XBUTTONDBLCLK = 525, // 0x0000020D
-            PARENTNOTIFY = 528, // 0x00000210
-            ENTERMENULOOP = 529, // 0x00000211
-            EXITMENULOOP = 530, // 0x00000212
-            NEXTMENU = 531, // 0x00000213
-            SIZING = 532, // 0x00000214
-            CAPTURECHANGED = 533, // 0x00000215
-            MOVING = 534, // 0x00000216
-            POWERBROADCAST = 536, // 0x00000218
-            DEVICECHANGE = 537, // 0x00000219
-            MDICREATE = 544, // 0x00000220
-            MDIDESTROY = 545, // 0x00000221
-            MDIACTIVATE = 546, // 0x00000222
-            MDIRESTORE = 547, // 0x00000223
-            MDINEXT = 548, // 0x00000224
-            MDIMAXIMIZE = 549, // 0x00000225
-            MDITILE = 550, // 0x00000226
-            MDICASCADE = 551, // 0x00000227
-            MDIICONARRANGE = 552, // 0x00000228
-            MDIGETACTIVE = 553, // 0x00000229
-            MDISETMENU = 560, // 0x00000230
-            ENTERSIZEMOVE = 561, // 0x00000231
-            EXITSIZEMOVE = 562, // 0x00000232
-            DROPFILES = 563, // 0x00000233
-            MDIREFRESHMENU = 564, // 0x00000234
-            IME_SETCONTEXT = 641, // 0x00000281
-            IME_NOTIFY = 642, // 0x00000282
-            IME_CONTROL = 643, // 0x00000283
-            IME_COMPOSITIONFULL = 644, // 0x00000284
-            IME_SELECT = 645, // 0x00000285
-            IME_CHAR = 646, // 0x00000286
-            IME_REQUEST = 648, // 0x00000288
-            IME_KEYDOWN = 656, // 0x00000290
-            IME_KEYUP = 657, // 0x00000291
-            NCMOUSEHOVER = 672, // 0x000002A0
-            MOUSEHOVER = 673, // 0x000002A1
-            NCMOUSELEAVE = 674, // 0x000002A2
-            MOUSELEAVE = 675, // 0x000002A3
-            WTSSESSION_CHANGE = 689, // 0x000002B1
-            TABLET_FIRST = 704, // 0x000002C0
-            TABLET_LAST = 735, // 0x000002DF
-            CUT = 768, // 0x00000300
-            COPY = 769, // 0x00000301
-            PASTE = 770, // 0x00000302
-            CLEAR = 771, // 0x00000303
-            UNDO = 772, // 0x00000304
-            RENDERFORMAT = 773, // 0x00000305
-            RENDERALLFORMATS = 774, // 0x00000306
-            DESTROYCLIPBOARD = 775, // 0x00000307
-            DRAWCLIPBOARD = 776, // 0x00000308
-            PAINTCLIPBOARD = 777, // 0x00000309
-            VSCROLLCLIPBOARD = 778, // 0x0000030A
-            SIZECLIPBOARD = 779, // 0x0000030B
-            ASKCBFORMATNAME = 780, // 0x0000030C
-            CHANGECBCHAIN = 781, // 0x0000030D
-            HSCROLLCLIPBOARD = 782, // 0x0000030E
-            QUERYNEWPALETTE = 783, // 0x0000030F
-            PALETTEISCHANGING = 784, // 0x00000310
-            PALETTECHANGED = 785, // 0x00000311
-            HOTKEY = 786, // 0x00000312
-            TASKBUTTONMENU = 787, // 0x00000313
-            PRINT = 791, // 0x00000317
-            PRINTCLIENT = 792, // 0x00000318
-            APPCOMMAND = 793, // 0x00000319
-            THEMECHANGED = 794, // 0x0000031A
-            HANDHELDFIRST = 856, // 0x00000358
-            HANDHELDLAST = 863, // 0x0000035F
-            AFXFIRST = 864, // 0x00000360
-            AFXLAST = 895, // 0x0000037F
-            PENWINFIRST = 896, // 0x00000380
-            PENWINLAST = 911, // 0x0000038F
-            USER = 1024, // 0x00000400
-            REFLECT = 8192, // 0x00002000
-            APP = 32768, // 0x00008000
+            /// <summary>
+            /// 0x0000000B
+            /// </summary>
+            ENABLE = 10,
+            /// <summary>
+            /// 0x0000000C
+            /// </summary>
+            SETREDRAW = 11,
+            /// <summary>
+            /// 0x0000000D
+            /// </summary>
+            SETTEXT = 12,
+            /// <summary>
+            /// 0x0000000E
+            /// </summary>
+            GETTEXT = 13,
+            /// <summary>
+            /// 0x0000000F
+            /// </summary>
+            GETTEXTLENGTH = 14,
+            /// <summary>
+            /// 
+            /// </summary>
+            PAINT = 15,
+            /// <summary>
+            /// 0x00000010
+            /// </summary>
+            CLOSE = 16,
+            /// <summary>
+            /// 0x00000011
+            /// </summary>
+            QUERYENDSESSION = 17,
+            /// <summary>
+            /// 0x00000012
+            /// </summary>
+            QUIT = 18,
+            /// <summary>
+            /// 0x00000013
+            /// </summary>
+            QUERYOPEN = 19,
+            /// <summary>
+            /// 0x00000014
+            /// </summary>
+            ERASEBKGND = 20,
+            /// <summary>
+            /// 0x00000015
+            /// </summary>
+            SYSCOLORCHANGE = 21,
+            /// <summary>
+            /// 0x00000016
+            /// </summary>
+            ENDSESSION = 22,
+            /// <summary>
+            /// 0x00000018
+            /// </summary>
+            SHOWWINDOW = 24,
+            /// <summary>
+            /// 0x0000001A
+            /// </summary>
+            SETTINGCHANGE = 26,
+            /// <summary>
+            /// 0x0000001A
+            /// </summary>
+            WININICHANGE = 26,
+            /// <summary>
+            /// 0x0000001B
+            /// </summary>
+            DEVMODECHANGE = 27,
+            /// <summary>
+            /// 0x0000001C
+            /// </summary>
+            ACTIVATEAPP = 28,
+            /// <summary>
+            /// 0x0000001D
+            /// </summary>
+            FONTCHANGE = 29,
+            /// <summary>
+            /// 0x0000001E
+            /// </summary>
+            TIMECHANGE = 30,
+            /// <summary>
+            /// 0x0000001F
+            /// </summary>
+            CANCELMODE = 31,
+            /// <summary>
+            /// 0x00000020
+            /// </summary>
+            SETCURSOR = 32,
+            /// <summary>
+            /// 0x00000021
+            /// </summary>
+            MOUSEACTIVATE = 33,
+            /// <summary>
+            /// 0x00000022
+            /// </summary>
+            CHILDACTIVATE = 34,
+            /// <summary>
+            /// 0x00000023
+            /// </summary>
+            QUEUESYNC = 35,
+            /// <summary>
+            /// 0x00000024
+            /// </summary>
+            GETMINMAXINFO = 36,
+            /// <summary>
+            /// 0x00000026
+            /// </summary>
+            PAINTICON = 38,
+            /// <summary>
+            /// 0x00000027
+            /// </summary>
+            ICONERASEBKGND = 39,
+            /// <summary>
+            /// 0x00000028
+            /// </summary>
+            NEXTDLGCTL = 40,
+            /// <summary>
+            /// 0x0000002A
+            /// </summary>
+            SPOOLERSTATUS = 42,
+            /// <summary>
+            /// 0x0000002B
+            /// </summary>
+            DRAWITEM = 43,
+            /// <summary>
+            /// 0x0000002C
+            /// </summary>
+            MEASUREITEM = 44,
+            /// <summary>
+            /// 0x0000002D
+            /// </summary>
+            DELETEITEM = 45,
+            /// <summary>
+            /// 0x0000002E
+            /// </summary>
+            VKEYTOITEM = 46,
+            /// <summary>
+            /// 0x0000002F
+            /// </summary>
+            CHARTOITEM = 47,
+            /// <summary>
+            /// 0x00000030
+            /// </summary>
+            SETFONT = 48,
+            /// <summary>
+            /// 0x00000031
+            /// </summary>
+            GETFONT = 49,
+            /// <summary>
+            /// 0x00000032
+            /// </summary>
+            SETHOTKEY = 50,
+            /// <summary>
+            /// 0x00000033
+            /// </summary>
+            GETHOTKEY = 51,
+            /// <summary>
+            /// 0x00000037
+            /// </summary>
+            QUERYDRAGICON = 55,
+            /// <summary>
+            /// 0x00000039
+            /// </summary>
+            COMPAREITEM = 57,
+            /// <summary>
+            /// 0x0000003D
+            /// </summary>
+            GETOBJECT = 61,
+            /// <summary>
+            /// 0x00000041
+            /// </summary>
+            COMPACTING = 65,
+            /// <summary>
+            /// 0x00000044
+            /// </summary>
+            COMMNOTIFY = 68,
+            /// <summary>
+            /// 0x00000046
+            /// </summary>
+            WINDOWPOSCHANGING = 70,
+            /// <summary>
+            /// 0x00000047
+            /// </summary>
+            WINDOWPOSCHANGED = 71,
+            /// <summary>
+            /// 0x0000004A
+            /// </summary>
+            COPYDATA = 74,
+            /// <summary>
+            /// 0x0000004B
+            /// </summary>
+            CANCELJOURNAL = 75,
+            /// <summary>
+            /// 0x0000004E
+            /// </summary>
+            NOTIFY = 78,
+            /// <summary>
+            /// 0x00000050
+            /// </summary>
+            INPUTLANGCHANGEREQUEST = 80,
+            /// <summary>
+            /// 0x00000051
+            /// </summary>
+            INPUTLANGCHANGE = 81,
+            /// <summary>
+            /// 0x00000052
+            /// </summary>
+            TCARD = 82,
+            /// <summary>
+            /// 0x00000053
+            /// </summary>
+            HELP = 83,
+            /// <summary>
+            /// 0x00000054
+            /// </summary>
+            USERCHANGED = 84,
+            /// <summary>
+            /// 0x00000055
+            /// </summary>
+            NOTIFYFORMAT = 85,
+            /// <summary>
+            /// 0x0000007B
+            /// </summary>
+            CONTEXTMENU = 123,
+            /// <summary>
+            /// 0x0000007C
+            /// </summary>
+            STYLECHANGING = 124,
+            /// <summary>
+            /// 0x0000007D
+            /// </summary>
+            STYLECHANGED = 125,
+            /// <summary>
+            /// 0x0000007E
+            /// </summary>
+            DISPLAYCHANGE = 126,
+            /// <summary>
+            /// 0x0000007F
+            /// </summary>
+            GETICON = 127,
+            /// <summary>
+            /// 0x00000080
+            /// </summary>
+            SETICON = 128,
+            /// <summary>
+            /// 0x00000081
+            /// </summary>
+            NCCREATE = 129,
+            /// <summary>
+            /// 0x00000082
+            /// </summary>
+            NCDESTROY = 130,
+            /// <summary>
+            /// 0x00000083
+            /// </summary>
+            NCCALCSIZE = 131,
+            /// <summary>
+            /// 0x00000084
+            /// </summary>
+            NCHITTEST = 132,
+            /// <summary>
+            /// 0x00000085
+            /// </summary>
+            NCPAINT = 133,
+            /// <summary>
+            /// 0x00000086
+            /// </summary>
+            NCACTIVATE = 134,
+            /// <summary>
+            /// 0x00000087
+            /// </summary>
+            GETDLGCODE = 135,
+            /// <summary>
+            /// 0x00000088
+            /// </summary>
+            SYNCPAINT = 136,
+            /// <summary>
+            /// 0x000000A0
+            /// </summary>
+            NCMOUSEMOVE = 160,
+            /// <summary>
+            /// 0x000000A1
+            /// </summary>
+            NCLBUTTONDOWN = 161,
+            /// <summary>
+            /// 0x000000A2
+            /// </summary>
+            NCLBUTTONUP = 162,
+            /// <summary>
+            /// 0x000000A3
+            /// </summary>
+            NCLBUTTONDBLCLK = 163,
+            /// <summary>
+            /// 0x000000A4
+            /// </summary>
+            NCRBUTTONDOWN = 164,
+            /// <summary>
+            /// 0x000000A5
+            /// </summary>
+            NCRBUTTONUP = 165,
+            /// <summary>
+            /// 0x000000A6
+            /// </summary>
+            NCRBUTTONDBLCLK = 166,
+            /// <summary>
+            /// 0x000000A7
+            /// </summary>
+            NCMBUTTONDOWN = 167,
+            /// <summary>
+            /// 0x000000A8
+            /// </summary>
+            NCMBUTTONUP = 168,
+            /// <summary>
+            /// 0x000000A9
+            /// </summary>
+            NCMBUTTONDBLCLK = 169,
+            /// <summary>
+            /// 0x000000AB
+            /// </summary>
+            NCXBUTTONDOWN = 171,
+            /// <summary>
+            /// 0x000000AC
+            /// </summary>
+            NCXBUTTONUP = 172,
+            /// <summary>
+            /// 0x000000AD
+            /// </summary>
+            NCXBUTTONDBLCLK = 173,
+            /// <summary>
+            /// 0x000000FF
+            /// </summary>
+            INPUT = 255,
+            /// <summary>
+            /// 0x00000100
+            /// </summary>
+            KEYDOWN = 256,
+            /// <summary>
+            /// 0x00000100
+            /// </summary>
+            KEYFIRST = 256,
+            /// <summary>
+            /// 0x00000101
+            /// </summary>
+            KEYUP = 257,
+            /// <summary>
+            /// 0x00000102
+            /// </summary>
+            CHAR = 258,
+            /// <summary>
+            /// 0x00000103
+            /// </summary>
+            DEADCHAR = 259,
+            /// <summary>
+            /// 0x00000104
+            /// </summary>
+            SYSKEYDOWN = 260,
+            /// <summary>
+            /// 0x00000105
+            /// </summary>
+            SYSKEYUP = 261,
+            /// <summary>
+            /// 0x00000106
+            /// </summary>
+            SYSCHAR = 262,
+            /// <summary>
+            /// 0x00000107
+            /// </summary>
+            SYSDEADCHAR = 263,
+            /// <summary>
+            /// 0x00000108
+            /// </summary>
+            KEYLAST = 264,
+            /// <summary>
+            /// 0x00000109
+            /// </summary>
+            KEYLAST_XP = 265,
+            /// <summary>
+            /// 0x00000109
+            /// </summary>
+            UNICHAR = 265,
+            /// <summary>
+            /// 0x0000010D
+            /// </summary>
+            IME_STARTCOMPOSITION = 269,
+            /// <summary>
+            /// 0x0000010E
+            /// </summary>
+            IME_ENDCOMPOSITION = 270,
+            /// <summary>
+            /// 0x0000010F
+            /// </summary>
+            IME_COMPOSITION = 271,
+            /// <summary>
+            /// 0x0000010F
+            /// </summary>
+            IME_KEYLAST = 271,
+            /// <summary>
+            /// 0x00000110
+            /// </summary>
+            INITDIALOG = 272,
+            /// <summary>
+            /// 0x00000111
+            /// </summary>
+            COMMAND = 273,
+            /// <summary>
+            /// 0x00000112
+            /// </summary>
+            SYSCOMMAND = 274,
+            /// <summary>
+            /// 0x00000113
+            /// </summary>
+            TIMER = 275,
+            /// <summary>
+            /// 0x00000114
+            /// </summary>
+            HSCROLL = 276,
+            /// <summary>
+            /// 0x00000115
+            /// </summary>
+            VSCROLL = 277,
+            /// <summary>
+            /// 0x00000116
+            /// </summary>
+            INITMENU = 278,
+            /// <summary>
+            /// 0x00000117
+            /// </summary>
+            INITMENUPOPUP = 279,
+            /// <summary>
+            /// 0x0000011F
+            /// </summary>
+            MENUSELECT = 287,
+            /// <summary>
+            /// 0x00000120
+            /// </summary>
+            MENUCHAR = 288,
+            /// <summary>
+            /// 0x00000121
+            /// </summary>
+            ENTERIDLE = 289,
+            /// <summary>
+            /// 0x00000122
+            /// </summary>
+            MENURBUTTONUP = 290,
+            /// <summary>
+            /// 0x00000123
+            /// </summary>
+            MENUDRAG = 291,
+            /// <summary>
+            /// 0x00000124
+            /// </summary>
+            MENUGETOBJECT = 292,
+            /// <summary>
+            /// 0x00000125
+            /// </summary>
+            UNINITMENUPOPUP = 293,
+            /// <summary>
+            /// 0x00000126
+            /// </summary>
+            MENUCOMMAND = 294,
+            /// <summary>
+            /// 0x00000127
+            /// </summary>
+            CHANGEUISTATE = 295,
+            /// <summary>
+            /// 0x00000128
+            /// </summary>
+            UPDATEUISTATE = 296,
+            /// <summary>
+            /// 0x00000129
+            /// </summary>
+            QUERYUISTATE = 297,
+            /// <summary>
+            /// 0x00000132
+            /// </summary>
+            CTLCOLORMSGBOX = 306,
+            /// <summary>
+            /// 0x00000133
+            /// </summary>
+            CTLCOLOREDIT = 307,
+            /// <summary>
+            /// 0x00000134
+            /// </summary>
+            CTLCOLORLISTBOX = 308,
+            /// <summary>
+            /// 0x00000135
+            /// </summary>
+            CTLCOLORBTN = 309,
+            /// <summary>
+            /// 0x00000136
+            /// </summary>
+            CTLCOLORDLG = 310,
+            /// <summary>
+            /// 0x00000137
+            /// </summary>
+            CTLCOLORSCROLLBAR = 311,
+            /// <summary>
+            /// 0x00000138
+            /// </summary>
+            CTLCOLORSTATIC = 312,
+            /// <summary>
+            /// 0x00000200
+            /// </summary>
+            MOUSEFIRST = 512,
+            /// <summary>
+            /// 0x00000200
+            /// </summary>
+            MOUSEMOVE = 512,
+            /// <summary>
+            /// 0x00000201
+            /// </summary>
+            LBUTTONDOWN = 513,
+            /// <summary>
+            /// 0x00000202
+            /// </summary>
+            LBUTTONUP = 514,
+            /// <summary>
+            /// 0x00000203
+            /// </summary>
+            LBUTTONDBLCLK = 515,
+            /// <summary>
+            /// 0x00000204
+            /// </summary>
+            RBUTTONDOWN = 516,
+            /// <summary>
+            /// 0x00000205
+            /// </summary>
+            RBUTTONUP = 517,
+            /// <summary>
+            /// 0x00000206
+            /// </summary>
+            RBUTTONDBLCLK = 518,
+            /// <summary>
+            /// 0x00000207
+            /// </summary>
+            MBUTTONDOWN = 519,
+            /// <summary>
+            /// 0x00000208
+            /// </summary>
+            MBUTTONUP = 520,
+            /// <summary>
+            /// 0x00000209
+            /// </summary>
+            MBUTTONDBLCLK = 521,
+            /// <summary>
+            /// 0x00000209
+            /// </summary>
+            MOUSELAST = 521,
+            /// <summary>
+            /// 0x0000020A
+            /// </summary>
+            MOUSELAST_NT = 522,
+            /// <summary>
+            /// 0x0000020A
+            /// </summary>
+            MOUSEWHEEL = 522,
+            /// <summary>
+            /// 0x0000020B
+            /// </summary>
+            XBUTTONDOWN = 523,
+            /// <summary>
+            /// 0x0000020C
+            /// </summary>
+            XBUTTONUP = 524,
+            /// <summary>
+            /// 0x0000020D
+            /// </summary>
+            MOUSELAST_2K = 525,
+            /// <summary>
+            /// 0x0000020D
+            /// </summary>
+            XBUTTONDBLCLK = 525,
+            /// <summary>
+            /// 0x00000210
+            /// </summary>
+            PARENTNOTIFY = 528,
+            /// <summary>
+            /// 0x00000211
+            /// </summary>
+            ENTERMENULOOP = 529,
+            /// <summary>
+            /// 0x00000212
+            /// </summary>
+            EXITMENULOOP = 530,
+            /// <summary>
+            /// 0x00000213
+            /// </summary>
+            NEXTMENU = 531,
+            /// <summary>
+            /// 0x00000214
+            /// </summary>
+            SIZING = 532,
+            /// <summary>
+            /// 0x00000215
+            /// </summary>
+            CAPTURECHANGED = 533,
+            /// <summary>
+            /// 0x00000216
+            /// </summary>
+            MOVING = 534,
+            /// <summary>
+            /// 0x00000218
+            /// </summary>
+            POWERBROADCAST = 536,
+            /// <summary>
+            /// 0x00000219
+            /// </summary>
+            DEVICECHANGE = 537,
+            /// <summary>
+            /// 0x00000220
+            /// </summary>
+            MDICREATE = 544,
+            /// <summary>
+            /// 0x00000221
+            /// </summary>
+            MDIDESTROY = 545,
+            /// <summary>
+            /// 0x00000222
+            /// </summary>
+            MDIACTIVATE = 546,
+            /// <summary>
+            /// 0x00000223
+            /// </summary>
+            MDIRESTORE = 547,
+            /// <summary>
+            /// 0x00000224
+            /// </summary>
+            MDINEXT = 548,
+            /// <summary>
+            /// 0x00000225
+            /// </summary>
+            MDIMAXIMIZE = 549,
+            /// <summary>
+            /// 0x00000226
+            /// </summary>
+            MDITILE = 550,
+            /// <summary>
+            /// 0x00000227
+            /// </summary>
+            MDICASCADE = 551,
+            /// <summary>
+            /// 0x00000228
+            /// </summary>
+            MDIICONARRANGE = 552,
+            /// <summary>
+            /// 0x00000229
+            /// </summary>
+            MDIGETACTIVE = 553,
+            /// <summary>
+            /// 0x00000230
+            /// </summary>
+            MDISETMENU = 560,
+            /// <summary>
+            /// 0x00000231
+            /// </summary>
+            ENTERSIZEMOVE = 561,
+            /// <summary>
+            /// 0x00000232
+            /// </summary>
+            EXITSIZEMOVE = 562,
+            /// <summary>
+            /// 0x00000233
+            /// </summary>
+            DROPFILES = 563,
+            /// <summary>
+            /// 0x00000234
+            /// </summary>
+            MDIREFRESHMENU = 564,
+            /// <summary>
+            /// 0x00000281
+            /// </summary>
+            IME_SETCONTEXT = 641,
+            /// <summary>
+            /// 0x00000282
+            /// </summary>
+            IME_NOTIFY = 642,
+            /// <summary>
+            /// 0x00000283
+            /// </summary>
+            IME_CONTROL = 643,
+            /// <summary>
+            /// 0x00000284
+            /// </summary>
+            IME_COMPOSITIONFULL = 644,
+            /// <summary>
+            /// 0x00000285
+            /// </summary>
+            IME_SELECT = 645,
+            /// <summary>
+            /// 0x00000286
+            /// </summary>
+            IME_CHAR = 646,
+            /// <summary>
+            /// 0x00000288
+            /// </summary>
+            IME_REQUEST = 648,
+            /// <summary>
+            /// 0x00000290
+            /// </summary>
+            IME_KEYDOWN = 656,
+            /// <summary>
+            /// 0x00000291
+            /// </summary>
+            IME_KEYUP = 657,
+            /// <summary>
+            /// 0x000002A0
+            /// </summary>
+            NCMOUSEHOVER = 672,
+            /// <summary>
+            /// 0x000002A1
+            /// </summary>
+            MOUSEHOVER = 673,
+            /// <summary>
+            /// 0x000002A2
+            /// </summary>
+            NCMOUSELEAVE = 674,
+            /// <summary>
+            /// 0x000002A3
+            /// </summary>
+            MOUSELEAVE = 675,
+            /// <summary>
+            /// 0x000002B1
+            /// </summary>
+            WTSSESSION_CHANGE = 689,
+            /// <summary>
+            /// 0x000002C0
+            /// </summary>
+            TABLET_FIRST = 704,
+            /// <summary>
+            /// 0x000002DF
+            /// </summary>
+            TABLET_LAST = 735,
+            /// <summary>
+            /// 0x00000300
+            /// </summary>
+            CUT = 768,
+            /// <summary>
+            /// 0x00000301
+            /// </summary>
+            COPY = 769,
+            /// <summary>
+            /// 0x00000302
+            /// </summary>
+            PASTE = 770,
+            /// <summary>
+            /// 0x00000303
+            /// </summary>
+            CLEAR = 771,
+            /// <summary>
+            /// 0x00000304
+            /// </summary>
+            UNDO = 772,
+            /// <summary>
+            /// 0x00000305
+            /// </summary>
+            RENDERFORMAT = 773,
+            /// <summary>
+            /// 0x00000306
+            /// </summary>
+            RENDERALLFORMATS = 774,
+            /// <summary>
+            /// 0x00000307
+            /// </summary>
+            DESTROYCLIPBOARD = 775,
+            /// <summary>
+            /// 0x00000308
+            /// </summary>
+            DRAWCLIPBOARD = 776,
+            /// <summary>
+            /// 0x00000309
+            /// </summary>
+            PAINTCLIPBOARD = 777,
+            /// <summary>
+            /// 0x0000030A
+            /// </summary>
+            VSCROLLCLIPBOARD = 778,
+            /// <summary>
+            /// 0x0000030B
+            /// </summary>
+            SIZECLIPBOARD = 779,
+            /// <summary>
+            /// 0x0000030C
+            /// </summary>
+            ASKCBFORMATNAME = 780,
+            /// <summary>
+            /// 0x0000030D
+            /// </summary>
+            CHANGECBCHAIN = 781,
+            /// <summary>
+            /// 0x0000030E
+            /// </summary>
+            HSCROLLCLIPBOARD = 782,
+            /// <summary>
+            /// 0x0000030F
+            /// </summary>
+            QUERYNEWPALETTE = 783,
+            /// <summary>
+            /// 0x00000310
+            /// </summary>
+            PALETTEISCHANGING = 784,
+            /// <summary>
+            /// 0x00000311
+            /// </summary>
+            PALETTECHANGED = 785,
+            /// <summary>
+            /// 0x00000312
+            /// </summary>
+            HOTKEY = 786,
+            /// <summary>
+            /// 0x00000313
+            /// </summary>
+            TASKBUTTONMENU = 787,
+            /// <summary>
+            /// 0x00000317
+            /// </summary>
+            PRINT = 791,
+            /// <summary>
+            /// 0x00000318
+            /// </summary>
+            PRINTCLIENT = 792,
+            /// <summary>
+            /// 0x00000319
+            /// </summary>
+            APPCOMMAND = 793,
+            /// <summary>
+            /// 0x0000031A
+            /// </summary>
+            THEMECHANGED = 794,
+            /// <summary>
+            /// 0x00000358
+            /// </summary>
+            HANDHELDFIRST = 856,
+            /// <summary>
+            /// 0x0000035F
+            /// </summary>
+            HANDHELDLAST = 863,
+            /// <summary>
+            /// 0x00000360
+            /// </summary>
+            AFXFIRST = 864,
+            /// <summary>
+            /// 0x0000037F
+            /// </summary>
+            AFXLAST = 895,
+            /// <summary>
+            /// 0x00000380
+            /// </summary>
+            PENWINFIRST = 896,
+            /// <summary>
+            /// 0x0000038F
+            /// </summary>
+            PENWINLAST = 911,
+            /// <summary>
+            /// 0x00000400
+            /// </summary>
+            USER = 1024,
+            /// <summary>
+            /// 0x00002000
+            /// </summary>
+            REFLECT = 8192,
+            /// <summary>
+            /// 0x00008000
+            /// </summary>
+            APP = 32768,
         }
         /// <summary>
         /// 
@@ -620,6 +1292,10 @@ namespace SBRW.Launcher.Core.Theme.Required.Flags_
             /// 0x00100000
             /// </summary>
             HIDEPREFIX = 1048576,
+            /// <summary>
+            /// 0x200000
+            /// </summary>
+            PREFIXONLY = 2097152,
         }
         /// <summary>
         /// Contains information about a hit test. This structure supersedes the <b>TC_HITTESTINFO</b> structure.

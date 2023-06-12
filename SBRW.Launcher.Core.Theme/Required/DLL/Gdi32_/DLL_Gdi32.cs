@@ -62,7 +62,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
 #else
         [DllImport(nameof(Gdi32))]
 #endif
-        public static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+        internal static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
         /// <summary>
         /// The BitBlt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context.
         /// </summary>
@@ -83,7 +83,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
         [DllImport(nameof(Gdi32))]
 #endif
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool BitBlt(IntPtr hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, IntPtr hdcSrc, int nXSrc, int nYSrc, int dwRop);
+        internal static extern bool BitBlt(IntPtr hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, IntPtr hdcSrc, int nXSrc, int nYSrc, int dwRop);
         /// <summary>
         /// The BitBlt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context.
         /// </summary>
@@ -113,7 +113,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
 #else
         [DllImport(nameof(Gdi32))]
 #endif
-        public static extern IntPtr CreateCompatibleDC(IntPtr hdc);
+        internal static extern IntPtr CreateCompatibleDC(IntPtr hdc);
         /// <summary>
         /// The CreateCompatibleDC function creates a memory device context (DC) compatible with the specified device.
         /// </summary>
@@ -136,7 +136,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
 #else
         [DllImport(nameof(Gdi32))]
 #endif
-        public static extern int SetTextColor(IntPtr hdc, int crColor);
+        internal static extern int SetTextColor(IntPtr hdc, int crColor);
         /// <summary>
         /// The SetTextColor function sets the text color for the specified device context to the specified color.
         /// </summary>
@@ -161,7 +161,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
 #else
         [DllImport(nameof(Gdi32))]
 #endif
-        public static extern int SetBkMode(IntPtr hDC, int nBkMode);
+        internal static extern int SetBkMode(IntPtr hDC, int nBkMode);
         /// <summary>
         /// Sets the background mix mode of the specified device context. 
         /// The background mix mode is used with text, hatched brushes, and pen styles that are not solid lines.
@@ -186,7 +186,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
 #else
         [DllImport(nameof(Gdi32))]
 #endif
-        public static extern IntPtr SelectObject(IntPtr hdc, IntPtr hgdiobj);
+        internal static extern IntPtr SelectObject(IntPtr hdc, IntPtr hgdiobj);
         /// <summary>
         /// The SelectObject function selects an object into the specified device context (DC). The new object replaces the previous object of the same type.
         /// </summary>
@@ -210,7 +210,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
         [DllImport(nameof(Gdi32))]
 #endif
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool DeleteObject(IntPtr hObject);
+        internal static extern bool DeleteObject(IntPtr hObject);
         /// <summary>
         /// The DeleteObject function deletes a logical pen, brush, font, bitmap, region, or palette, freeing all system resources associated with the object. After the object is deleted, the specified handle is no longer valid.
         /// </summary>
@@ -233,7 +233,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
         [DllImport(nameof(Gdi32))]
 #endif
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool DeleteDC(IntPtr hdc);
+        internal static extern bool DeleteDC(IntPtr hdc);
         /// <summary>
         /// The DeleteDC function deletes the specified device context (DC).
         /// </summary>
@@ -256,7 +256,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.Gdi32_
 #else
         [DllImport(nameof(Gdi32))]
 #endif
-        public static extern int SetLayout(IntPtr hdc, int dwLayout);
+        internal static extern int SetLayout(IntPtr hdc, int dwLayout);
         /// <summary>
         /// The SetLayout function changes the layout of a device context (DC).
         /// </summary>

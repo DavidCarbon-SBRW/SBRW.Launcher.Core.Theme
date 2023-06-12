@@ -32,7 +32,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.User32_
 #else
         [DllImport(nameof(User32))]
 #endif
-        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+        internal static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
         /// <summary>
         /// Sends the specified message to a window or windows. 
         /// The SendMessage function calls the window procedure for the specified window and does not return until the window procedure has processed the message.
@@ -123,7 +123,7 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.User32_
         [DllImport(nameof(User32), CharSet = CharSet.Auto)]
 #endif
         [return: MarshalAs(UnmanagedType.I4)]
-        public static extern int DrawState(IntPtr hdc, IntPtr hbr, IntPtr lpOutputFunc, IntPtr lData, IntPtr wData, int x, int y, int cx, int cy, int fuFlags);
+        internal static extern int DrawState(IntPtr hdc, IntPtr hbr, IntPtr lpOutputFunc, IntPtr lData, IntPtr wData, int x, int y, int cx, int cy, int fuFlags);
         /// <summary>
         /// The DrawState function displays an image and applies a visual effect to indicate a state, such as a disabled or default state.
         /// </summary>
