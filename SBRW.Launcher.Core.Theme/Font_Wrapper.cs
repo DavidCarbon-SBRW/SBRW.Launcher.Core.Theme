@@ -88,7 +88,7 @@ namespace SBRW.Launcher.Core.Theme
                     ManifestResourceStream.Read(array, 0, (int)ManifestResourceStream.Length);
                     Marshal.Copy(array, 0, intPtr, (int)ManifestResourceStream.Length);
                     uint num = 0u;
-                    DLL_Font.AddFontMemResourceEx(intPtr, (uint)array.Length, IntPtr.Zero, ref num);
+                    intPtr.AddFontMemResource((uint)array.Length, IntPtr.Zero, ref num);
                     Private_Font_Collection.AddMemoryFont(intPtr, (int)ManifestResourceStream.Length);
                     ManifestResourceStream.Close();
                     ManifestResourceStream.Dispose();
