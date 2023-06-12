@@ -22,10 +22,13 @@ namespace SBRW.Launcher.Core.Theme
     /// <summary>
     /// 
     /// </summary>
+    /// <remarks><see href="https://dotnetrix.co.uk/tabcontrol.htm#tip12">
+    /// Based on the Following (Thanks to Mick Dohertys' Guide)</see></remarks>
     [ToolboxItemFilter("Containers")]
-    [ToolboxBitmap(typeof(System.Windows.Forms.TabControl))]
-    public class Control_TabControl : System.Windows.Forms.TabControl
+    [ToolboxBitmap(typeof(TabControl))]
+    public class Control_TabControl : TabControl
     {
+        #region Local Variables
         /// <summary>
         /// 
         /// </summary>
@@ -73,12 +76,22 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
+        private bool m_Mirror = false;
+        /// <summary>
+        /// 
+        /// </summary>
+        private bool m_HideTabs = false;
+        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
         public Control_TabControl()
         {
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.Opaque, false);
             this.DoubleBuffered = false;
         }
+        #region Property
         /// <summary>
         /// The background color of the component
         /// </summary>
@@ -127,11 +140,12 @@ namespace SBRW.Launcher.Core.Theme
                 base.ForeColor = value;
             }
         }
-        private bool m_HideTabs = false;
         /// <summary>
         /// Determines whether the Tabs Menu Bar and Outline is hidden
         /// </summary>
         [DefaultValue(false)]
+        [Description("Determines whether the Tabs Menu Bar and Outline is hidden")]
+        [Category("Appearance")]
         [RefreshProperties(RefreshProperties.All)]
         public bool TabsHide
         {
@@ -142,6 +156,25 @@ namespace SBRW.Launcher.Core.Theme
                 m_HideTabs = value;
                 if (value == true) this.Multiline = true;
                 this.UpdateStyles();
+            }
+        }
+        /// <summary>
+        /// Determines whether the Tabs Menu is Mirrored. Should only be set if RightToLeft and RightToLeftLayout is true.
+        /// </summary>
+        [DefaultValue(false)]
+        [Description("Determines whether the Tabs Menu is Mirrored. Should only be set if RightToLeft and RightToLeftLayout is true.")]
+        [Category("Appearance")]
+        public bool TabsMirror
+        {
+            get
+            {
+                return m_Mirror;
+            }
+            set
+            {
+                if (m_Mirror == value) return;
+                m_Mirror = value;
+                base.UpdateStyles();
             }
         }
         /// <summary>
@@ -398,6 +431,8 @@ namespace SBRW.Launcher.Core.Theme
                 return this.DesignMode ? VisualStyleRenderer.IsSupported : this.Handle.WindowThemeGet() != IntPtr.Zero;
             }
         }
+        #endregion
+        #region Overrides
         /// <summary>
         /// 
         /// </summary>
@@ -780,6 +815,23 @@ namespace SBRW.Launcher.Core.Theme
             base.WndProc(ref m);
         }
 #endif
+        /// <summary>
+        /// 
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_EX_LAYOUTRTL = 0x400000;
+                const int WS_EX_NOINHERITLAYOUT = 0x100000;
+                CreateParams cp = base.CreateParams;
+                if (this.TabsMirror)
+                    cp.ExStyle = cp.ExStyle | WS_EX_LAYOUTRTL | WS_EX_NOINHERITLAYOUT;
+                return cp;
+            }
+        }
+        #endregion
+        #region Functions
         /// <summary>
         /// 
         /// </summary>
@@ -1578,6 +1630,7 @@ namespace SBRW.Launcher.Core.Theme
             }
             return true;
         }
+        #endregion
     }
 }
 #endif
