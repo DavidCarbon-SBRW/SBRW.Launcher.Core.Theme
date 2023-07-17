@@ -27,7 +27,7 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Settings { get; set; } = Image_Converter.Value(Properties.Resources.Background_Settings);
+        public static Image Settings { get; set; } = Image_Converter.Value(Properties.Resources.Background_Blank);
         /// <summary>
         /// 
         /// </summary>
@@ -35,7 +35,7 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Splash { get; set; } = Image_Converter.Value(Properties.Resources.Background_Splash);
+        public static Image Splash { get; set; } = Image_Converter.Value(Properties.Resources.Background_Blank);
     }
 }
 #endif

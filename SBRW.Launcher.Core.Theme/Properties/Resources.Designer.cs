@@ -63,6 +63,16 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Background_Blank {
+            get {
+                object obj = ResourceManager.GetObject("Background_Blank", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Background_Login {
             get {
                 object obj = ResourceManager.GetObject("Background_Login", resourceCulture);
@@ -96,16 +106,6 @@ namespace SBRW.Launcher.Core.Theme.Properties {
         public static byte[] Background_Social {
             get {
                 object obj = ResourceManager.GetObject("Background_Social", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Background_Splash {
-            get {
-                object obj = ResourceManager.GetObject("Background_Splash", resourceCulture);
                 return ((byte[])(obj));
             }
         }
