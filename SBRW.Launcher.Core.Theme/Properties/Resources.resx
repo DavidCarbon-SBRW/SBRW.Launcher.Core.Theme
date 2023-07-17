@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Background_Blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Backgrounds\Background_Blank.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Background_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_Login.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -129,9 +132,6 @@
   </data>
   <data name="Background_Social" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_Social.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Background_Splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Backgrounds\Background_Splash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Background_USXE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrounds\Background_USXE.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
