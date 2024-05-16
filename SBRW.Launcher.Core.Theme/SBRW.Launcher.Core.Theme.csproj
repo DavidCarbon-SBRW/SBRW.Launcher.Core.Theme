@@ -2,9 +2,10 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0-windows;net45</TargetFrameworks>
+	<LangVersion>10</LangVersion>
 	<UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Version>0.2.2</Version>
+	<Version>0.3.0</Version>
     <Authors>Soapbox Race World - Launcher Division</Authors>
     <Company>Soapbox Race World</Company>
     <Description>A Game Launchers Theme Library built within .NET Standard-Framework</Description>
@@ -32,11 +33,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\SVGs\Icon_Check_Engine.svg" />
+    <None Remove="Resources\SVGs\Icon_Cross.svg" />
+    <None Remove="Resources\SVGs\Icon_Discord.svg" />
+    <None Remove="Resources\SVGs\Icon_Facebook.svg" />
+    <None Remove="Resources\SVGs\Icon_Gear.svg" />
+    <None Remove="Resources\SVGs\Icon_Globe.svg" />
+    <None Remove="Resources\SVGs\Icon_Home.svg" />
+    <None Remove="Resources\SVGs\Icon_Plug_Disconnected.svg" />
+    <None Remove="Resources\SVGs\Icon_Save_Alt.svg" />
+    <None Remove="Resources\SVGs\Icon_Shield.svg" />
+    <None Remove="Resources\SVGs\Icon_Twitter.svg" />
+    <None Remove="Resources\SVGs\Input_Global.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="Resources\BootScreen\BootFlow.gfx" />
     <EmbeddedResource Include="Resources\Cursors\Cursor.ani" />
     <EmbeddedResource Include="Resources\Fonts\DejaVuSans-Bold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\DejaVuSans.ttf" />
     <EmbeddedResource Include="Resources\Ico\SBRW.ico" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Check_Engine.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Cross.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Discord.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Facebook.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Gear.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Globe.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Home.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Plug_Disconnected.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Save_Alt.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Shield.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Twitter.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Input_Global.svg" />
   </ItemGroup>
 
   <ItemGroup>
