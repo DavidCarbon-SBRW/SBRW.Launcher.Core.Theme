@@ -85,7 +85,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource BootFlow GFX File in Bytes</returns>
         public static byte[] BootFlow_GFX_Bytes()
         {
-            return Extract_Resource.AsByte(BootFlow_GFX_File);
+            return BootFlow_GFX_File.To_Byte();
         }
         /// <summary>
         /// Cursor File
@@ -93,7 +93,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource Cursor File in Bytes</returns>
         public static byte[] Cursor_Ani_Bytes()
         {
-            return Extract_Resource.AsByte(Cursor_Ani_File);
+            return Cursor_Ani_File.To_Byte();
         }
         /// <summary>
         /// DejaVuSans Font File
@@ -101,7 +101,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource DejaVuSans Font File in Bytes</returns>
         public static byte[] DejaVuSans_Ttf_Bytes()
         {
-            return Extract_Resource.AsByte(DejaVuSans_Ttf_File);
+            return DejaVuSans_Ttf_File.To_Byte();
         }
         /// <summary>
         /// DejaVuSans Bold Font File
@@ -109,7 +109,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource DejaVuSans Bold Font File in Bytes</returns>
         public static byte[] DejaVuSans_Bold_Ttf_Bytes()
         {
-            return Extract_Resource.AsByte(DejaVuSans_Bold_Ttf_File);
+            return DejaVuSans_Bold_Ttf_File.To_Byte();
         }
         /// <summary>
         /// SBRW Ico File
@@ -117,103 +117,103 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource SBRW Ico File in Bytes</returns>
         public static byte[] SBRW_Ico_Bytes()
         {
-            return Extract_Resource.AsByte(SBRW_Ico_File);
+            return SBRW_Ico_File.To_Byte();
         }
         /// <summary>
         /// Check Engine SVG File
         /// </summary>
         /// <returns>Embeded Resource Check Engine SVG File in Bytes</returns>
-        public static byte[] SVG_Check_Engine_Bytes()
+        public static string SVG_Check_Engine_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Check_Engine);
+            return SVG_Check_Engine.ByteToString();
         }
         /// <summary>
         /// Cross SVG File
         /// </summary>
         /// <returns>Embeded Resource Cross SVG File in Bytes</returns>
-        public static byte[] SVG_Cross_Bytes()
+        public static string SVG_Cross_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Cross);
+            return SVG_Cross.ByteToString();
         }
         /// <summary>
         /// Discord SVG File
         /// </summary>
         /// <returns>Embeded Resource Discord SVG File in Bytes</returns>
-        public static byte[] SVG_Discord_Bytes()
+        public static string SVG_Discord_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Discord);
+            return SVG_Discord.ByteToString();
         }
         /// <summary>
         /// Facebook SVG File
         /// </summary>
         /// <returns>Embeded Resource Facebook SVG File in Bytes</returns>
-        public static byte[] SVG_Facebook_Bytes()
+        public static string SVG_Facebook_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Facebook);
+            return SVG_Facebook.ByteToString();
         }
         /// <summary>
         /// Gear SVG File
         /// </summary>
         /// <returns>Embeded Resource Gear SVG File in Bytes</returns>
-        public static byte[] SVG_Gear_Bytes()
+        public static string SVG_Gear_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Gear);
+            return SVG_Gear.ByteToString();
         }
         /// <summary>
         /// Globe SVG File
         /// </summary>
         /// <returns>Embeded Resource Globe SVG File in Bytes</returns>
-        public static byte[] SVG_Globe_Bytes()
+        public static string SVG_Globe_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Globe);
+            return SVG_Globe.ByteToString();
         }
         /// <summary>
         /// Home SVG File
         /// </summary>
         /// <returns>Embeded Resource Home SVG File in Bytes</returns>
-        public static byte[] SVG_Home_Bytes()
+        public static string SVG_Home_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Home);
+            return SVG_Home.ByteToString();
         }
         /// <summary>
         /// Plug Connect SVG File
         /// </summary>
         /// <returns>Embeded Resource Plug Connect SVG File in Bytes</returns>
-        public static byte[] SVG_Plug_Connect_Bytes()
+        public static string SVG_Plug_Connect_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Plug_Connect);
+            return SVG_Plug_Connect.ByteToString();
         }
         /// <summary>
         /// Save SVG File
         /// </summary>
         /// <returns>Embeded Resource Save SVG File in Bytes</returns>
-        public static byte[] SVG_Save_Bytes()
+        public static string SVG_Save_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Save);
+            return SVG_Save.ByteToString();
         }
         /// <summary>
         /// Shield SVG File
         /// </summary>
         /// <returns>Embeded Resource Shield SVG File in Bytes</returns>
-        public static byte[] SVG_Shield_Bytes()
+        public static string SVG_Shield_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Shield);
+            return SVG_Shield.ByteToString();
         }
         /// <summary>
         /// Twitter SVG File
         /// </summary>
         /// <returns>Embeded Resource Twitter SVG File in Bytes</returns>
-        public static byte[] SVG_Twitter_Bytes()
+        public static string SVG_Twitter_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Twitter);
+            return SVG_Twitter.ByteToString();
         }
         /// <summary>
         /// Inputs Box SVG File
         /// </summary>
         /// <returns>Embeded Resource Inputs Box SVG File in Bytes</returns>
-        public static byte[] SVG_Inputs_Box_Bytes()
+        public static string SVG_Inputs_Box_Bytes()
         {
-            return Extract_Resource.AsByte(SVG_Inputs);
+            return SVG_Inputs.ByteToString();
         }
     }
 }
