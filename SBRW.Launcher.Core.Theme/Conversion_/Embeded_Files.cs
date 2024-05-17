@@ -8,32 +8,96 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
     public class Embeded_Files
     {
         /// <summary>
-        /// At Compilee Time Constant Static String File
+        /// 
         /// </summary>
-        internal const string BootFlow_GFX_File = "SBRW.Launcher.Core.Theme.Resources.BootScreen.BootFlow.gfx";
+        internal const string SBRW_Resources_Root_Path = "SBRW.Launcher.Core.Theme.Resources.";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
-        internal const string Cursor_Ani_File = "SBRW.Launcher.Core.Theme.Resources.Cursors.Cursor.ani";
+        internal const string BootFlow_GFX_File = $"{SBRW_Resources_Root_Path}BootScreen.BootFlow.gfx";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
-        internal const string DejaVuSans_Ttf_File = "SBRW.Launcher.Core.Theme.Resources.Fonts.DejaVuSans.ttf";
+        internal const string Cursor_Ani_File = $"{SBRW_Resources_Root_Path}Cursors.Cursor.ani";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
-        internal const string DejaVuSans_Bold_Ttf_File = "SBRW.Launcher.Core.Theme.Resources.Fonts.DejaVuSans-Bold.ttf";
+        internal const string DejaVuSans_Ttf_File = $"{SBRW_Resources_Root_Path}Fonts.DejaVuSans.ttf";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
-        internal const string SBRW_Ico_File = "SBRW.Launcher.Core.Theme.Resources.Ico.SBRW.ico";
+        internal const string DejaVuSans_Bold_Ttf_File = $"{SBRW_Resources_Root_Path}Fonts.DejaVuSans-Bold.ttf";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SBRW_Ico_File = $"{SBRW_Resources_Root_Path}Ico.SBRW.ico";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Check_Engine = $"{SBRW_Resources_Root_Path}SVGs.Icon_Check_Engine.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Cross = $"{SBRW_Resources_Root_Path}SVGs.Icon_Cross.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Discord = $"{SBRW_Resources_Root_Path}SVGs.Icon_Discord.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Facebook = $"{SBRW_Resources_Root_Path}SVGs.Icon_Facebook.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Gear = $"{SBRW_Resources_Root_Path}SVGs.Icon_Gear.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Globe = $"{SBRW_Resources_Root_Path}SVGs.Icon_Globe.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Helmet = $"{SBRW_Resources_Root_Path}SVGs.Icon_Helmet.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Home = $"{SBRW_Resources_Root_Path}SVGs.Icon_Home.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Offline = $"{SBRW_Resources_Root_Path}SVGs.Icon_Offline.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Plug_Connect = $"{SBRW_Resources_Root_Path}SVGs.Icon_Plug_Disconnected.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Save = $"{SBRW_Resources_Root_Path}SVGs.Icon_Save.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Server = $"{SBRW_Resources_Root_Path}SVGs.Icon_Server.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Shield = $"{SBRW_Resources_Root_Path}SVGs.Icon_Shield.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Twitter = $"{SBRW_Resources_Root_Path}SVGs.Icon_Twitter.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Inputs = $"{SBRW_Resources_Root_Path}SVGs.Input_Global.svg";
         /// <summary>
         /// BootFlow GFX File
         /// </summary>
         /// <returns>Embeded Resource BootFlow GFX File in Bytes</returns>
         public static byte[] BootFlow_GFX_Bytes()
         {
-            return Extract_Resource.AsByte(BootFlow_GFX_File);
+            return BootFlow_GFX_File.To_Byte();
         }
         /// <summary>
         /// Cursor File
@@ -41,7 +105,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource Cursor File in Bytes</returns>
         public static byte[] Cursor_Ani_Bytes()
         {
-            return Extract_Resource.AsByte(Cursor_Ani_File);
+            return Cursor_Ani_File.To_Byte();
         }
         /// <summary>
         /// DejaVuSans Font File
@@ -49,7 +113,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource DejaVuSans Font File in Bytes</returns>
         public static byte[] DejaVuSans_Ttf_Bytes()
         {
-            return Extract_Resource.AsByte(DejaVuSans_Ttf_File);
+            return DejaVuSans_Ttf_File.To_Byte();
         }
         /// <summary>
         /// DejaVuSans Bold Font File
@@ -57,7 +121,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource DejaVuSans Bold Font File in Bytes</returns>
         public static byte[] DejaVuSans_Bold_Ttf_Bytes()
         {
-            return Extract_Resource.AsByte(DejaVuSans_Bold_Ttf_File);
+            return DejaVuSans_Bold_Ttf_File.To_Byte();
         }
         /// <summary>
         /// SBRW Ico File
@@ -65,7 +129,127 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <returns>Embeded Resource SBRW Ico File in Bytes</returns>
         public static byte[] SBRW_Ico_Bytes()
         {
-            return Extract_Resource.AsByte(SBRW_Ico_File);
+            return SBRW_Ico_File.To_Byte();
+        }
+        /// <summary>
+        /// Check Engine SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Check Engine SVG File as a String</returns>
+        public static string SvG_Check_Engine()
+        {
+            return SVG_Check_Engine.ByteToString();
+        }
+        /// <summary>
+        /// Cross SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Cross SVG File as a String</returns>
+        public static string SvG_Cross()
+        {
+            return SVG_Cross.ByteToString();
+        }
+        /// <summary>
+        /// Discord SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Discord SVG File as a String</returns>
+        public static string SvG_Discord()
+        {
+            return SVG_Discord.ByteToString();
+        }
+        /// <summary>
+        /// Facebook SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Facebook SVG File as a String</returns>
+        public static string SvG_Facebook()
+        {
+            return SVG_Facebook.ByteToString();
+        }
+        /// <summary>
+        /// Gear SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Gear SVG File as a String</returns>
+        public static string SvG_Gear()
+        {
+            return SVG_Gear.ByteToString();
+        }
+        /// <summary>
+        /// Globe SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Globe SVG File as a String</returns>
+        public static string SvG_Globe()
+        {
+            return SVG_Globe.ByteToString();
+        }
+        /// <summary>
+        /// Helmet SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Helmet SVG File as a String</returns>
+        public static string SvG_Helmet()
+        {
+            return SVG_Helmet.ByteToString();
+        }
+        /// <summary>
+        /// Home SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Home SVG File as a String</returns>
+        public static string SvG_Home()
+        {
+            return SVG_Home.ByteToString();
+        }
+        /// <summary>
+        /// Offline SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Offline SVG File as a String</returns>
+        public static string SvG_Offline()
+        {
+            return SVG_Offline.ByteToString();
+        }
+        /// <summary>
+        /// Plug Connect SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Plug Connect SVG File as a String</returns>
+        public static string SvG_Plug_Connect()
+        {
+            return SVG_Plug_Connect.ByteToString();
+        }
+        /// <summary>
+        /// Save SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Save SVG File as a String</returns>
+        public static string SvG_Save()
+        {
+            return SVG_Save.ByteToString();
+        }
+        /// <summary>
+        /// Shield SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Shield SVG File as a String</returns>
+        public static string SvG_Shield()
+        {
+            return SVG_Shield.ByteToString();
+        }
+        /// <summary>
+        /// Server SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Server SVG File as a String</returns>
+        public static string SvG_Server()
+        {
+            return SVG_Server.ByteToString();
+        }
+        /// <summary>
+        /// Twitter SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Twitter SVG File as a String</returns>
+        public static string SvG_Twitter()
+        {
+            return SVG_Twitter.ByteToString();
+        }
+        /// <summary>
+        /// Inputs Box SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Inputs Box SVG File as a String</returns>
+        public static string SvG_Inputs_Box()
+        {
+            return SVG_Inputs.ByteToString();
         }
     }
 }

@@ -32,55 +32,55 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        private Color myBackColor = Color.Empty;
+        private Color myBackColor { get; set; } = Color.Empty;
         /// <summary>
         /// 
         /// </summary>
-        private int myHotTabID = -1;
+        private int myHotTabID { get; set; } = -1;
         /// <summary>
         /// 
         /// </summary>
-        private Color myTabColor = SystemColors.Control;
+        private Color myTabColor { get; set; } = SystemColors.Control;
         /// <summary>
         /// 
         /// </summary>
-        private Color mySelectedTabColor = SystemColors.Control;
+        private Color mySelectedTabColor { get; set; } = SystemColors.Control;
         /// <summary>
         /// 
         /// </summary>
-        private Color myHotColor = SystemColors.HotTrack;
+        private Color myHotColor { get; set; } = SystemColors.HotTrack;
         /// <summary>
         /// 
         /// </summary>
-        private TabDrawMode myDrawMode;
+        private TabDrawMode myDrawMode { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        private bool firstShown;
+        private bool firstShown { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        private bool rotateImageWithTab;
+        private bool rotateImageWithTab { get; set; }
+        /// <summary>
+        /// This causes a memory leak, but can be controlled with manually calling GC
+        /// </summary>
+        private Bitmap BufferImage { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        private Bitmap BufferImage;
+        private bool myDoubleBufferTabpages { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        private bool myDoubleBufferTabpages;
+        private bool myUseBackColorBehindTabs { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        private bool myUseBackColorBehindTabs;
+        private bool m_Mirror { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        private bool m_Mirror = false;
-        /// <summary>
-        /// 
-        /// </summary>
-        private bool m_HideTabs = false;
+        private bool m_HideTabs { get; set; }
         #endregion
         /// <summary>
         /// 
@@ -399,7 +399,7 @@ namespace SBRW.Launcher.Core.Theme
                 if (this.Appearance == TabAppearance.Normal)
                     return this.SelectedTab;
                 int int32 = this.Handle.MessageSend(4911, IntPtr.Zero, IntPtr.Zero).ToInt32();
-                return int32 != -1 ? this.TabPages[int32] : (TabPage)null;
+                return int32 != -1 ? this.TabPages[int32] : default;
             }
         }
         /// <summary>
@@ -436,23 +436,23 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="pevent"></param>
-        protected override void OnPaintBackground(PaintEventArgs pevent)
+        /// <param name="e"></param>
+        protected override void OnPaintBackground(PaintEventArgs e)
         {
             if (this.Width <= 0 || this.Height <= 0)
                 return;
-            pevent.Graphics.Flush(FlushIntention.Sync);
+            e.Graphics.Flush(FlushIntention.Sync);
             using (Bitmap bitmap = new Bitmap(this.Width, this.Height, PixelFormat.Format32bppPArgb))
             {
-                using (Graphics graphics = Graphics.FromImage((Image)bitmap))
+                using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
                     if (this.BufferImage != null)
-                        graphics.DrawImage((Image)this.BufferImage, Point.Empty);
+                        graphics.DrawImage(this.BufferImage, Point.Empty);
                     Rectangle rect = this.ClientRectangle;
                     if (!this.myUseBackColorBehindTabs)
                         rect = this.DisplayRectangle;
                     using (SolidBrush solidBrush = new SolidBrush(this.BackColor))
-                        graphics.FillRectangle((Brush)solidBrush, rect);
+                        graphics.FillRectangle(solidBrush, rect);
                     this.DrawBorder(graphics);
                     for (int id = 0; id < this.TabCount; ++id)
                     {
@@ -465,9 +465,10 @@ namespace SBRW.Launcher.Core.Theme
                     IntPtr hdc1 = graphics.GetHdc();
                     IntPtr compatibleDc = hdc1.DeviceContextCreateCompatible();
                     IntPtr hdc2 = compatibleDc.ObjectSelect(hbitmap);
-                    IntPtr hdc3 = pevent.Graphics.GetHdc();
+                    IntPtr hdc3 = e.Graphics.GetHdc();
                     hdc3.BitBlock(0, 0, this.Width, this.Height, compatibleDc, 0, 0, 13369376);
-                    pevent.Graphics.ReleaseHdc(hdc3);
+                    e.Graphics.ReleaseHdc(hdc3);
+                    hdc3.ObjectDelete();
                     hdc2.ObjectSelect(hbitmap);
                     compatibleDc.DeviceContextDelete();
                     graphics.ReleaseHdc(hdc1);
@@ -564,6 +565,7 @@ namespace SBRW.Launcher.Core.Theme
                 IntPtr hgdiobj = hdc1.ObjectSelect(hfont);
                 hdc1.TextDraw(tabPage.Text, tabPage.Text.Length, ref lpRect, Flags_TabControl.DRAWTEXTFLAGS.CALCRECT | Flags_TabControl.DRAWTEXTFLAGS.HIDEPREFIX);
                 hdc1.ObjectSelect(hgdiobj);
+                hgdiobj.ObjectDelete();
                 hfont.ObjectDelete();
                 e.Graphics.ReleaseHdc(hdc1);
                 Rectangle bounds2 = new Rectangle(Point.Empty, lpRect.Size);
@@ -600,24 +602,25 @@ namespace SBRW.Launcher.Core.Theme
                 }
                 if (flag2)
                 {
-                    Bitmap bitmap = tabPage.ImageIndex != -1 ? (Bitmap)this.ImageList.Images[tabPage.ImageIndex] : (Bitmap)this.ImageList.Images[tabPage.ImageKey];
-                    if (!this.RotateImageWithTab)
+                    using (Bitmap bitmap = tabPage.ImageIndex != -1 ? (Bitmap)this.ImageList.Images[tabPage.ImageIndex] : (Bitmap)this.ImageList.Images[tabPage.ImageKey])
                     {
-                        switch (this.Alignment)
+                        if (!this.RotateImageWithTab)
                         {
-                            case TabAlignment.Left:
-                                bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                                break;
-                            case TabAlignment.Right:
-                                bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                                break;
+                            switch (this.Alignment)
+                            {
+                                case TabAlignment.Left:
+                                    bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                                    break;
+                                case TabAlignment.Right:
+                                    bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                                    break;
+                            }
                         }
+                        if (tabPage.Enabled)
+                            e.Graphics.DrawImage(bitmap, empty);
+                        else
+                            ControlPaint.DrawImageDisabled(e.Graphics, bitmap, empty.X, empty.Y, Color.Empty);
                     }
-                    if (tabPage.Enabled)
-                        e.Graphics.DrawImage((Image)bitmap, empty);
-                    else
-                        ControlPaint.DrawImageDisabled(e.Graphics, (Image)bitmap, empty.X, empty.Y, Color.Empty);
-                    bitmap.Dispose();
                 }
                 Flags_TabControl.DrawStateFlags drawStateFlags = Flags_TabControl.DrawStateFlags.PREFIXTEXT;
                 Color textColor = e.Index != this.HotTabID || !this.HotTrack || (this.Appearance == TabAppearance.FlatButtons || visualStylesEnabled) ? this.ForeColor : this.HotColor;
@@ -636,7 +639,7 @@ namespace SBRW.Launcher.Core.Theme
                 if (flag1)
                     hdc2.LayoutSet(9);
                 e.Graphics.ReleaseHdc(hdc2);
-                Control_TabControl.GdiDrawStateText(hdc2, tabPage.Text, this.Font, textColor, bounds2, (int)drawStateFlags);
+                GdiDrawStateText(hdc2, tabPage.Text, this.Font, textColor, bounds2, (int)drawStateFlags);
                 e.Graphics.Flush(FlushIntention.Sync);
             }
         }
@@ -783,16 +786,18 @@ namespace SBRW.Launcher.Core.Theme
             }
             base.OnKeyDown(e);
         }
-#if NETFRAMEWORK
         /// <summary>
         /// 
         /// </summary>
         /// <param name="m"></param>
+#if NETFRAMEWORK
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+#endif
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
             {
+                /* WM_ERASEBKGND = 0x0014 */
                 case 20:
                     m.Msg = 0;
                     m.Result = IntPtr.Zero;
@@ -812,9 +817,9 @@ namespace SBRW.Launcher.Core.Theme
                     this.Invalidate(true);
                     break;
             }
+            /* WM_PAINT = 0x000F */
             base.WndProc(ref m);
         }
-#endif
         /// <summary>
         /// 
         /// </summary>
@@ -841,78 +846,85 @@ namespace SBRW.Launcher.Core.Theme
         {
             if (id == -1)
                 return;
-            Bitmap tabBaseBitmap = this.CreateTabBaseBitmap(id);
-            Rectangle rect = new Rectangle(Point.Empty, tabBaseBitmap.Size);
-            using (Graphics graphics1 = Graphics.FromImage((Image)tabBaseBitmap))
+
+            using (Bitmap tabBaseBitmap = this.CreateTabBaseBitmap(id))
             {
-                IntPtr hdc1 = graphics1.GetHdc();
-                IntPtr hbitmap = tabBaseBitmap.GetHbitmap();
-                IntPtr compatibleDc = hdc1.DeviceContextCreateCompatible();
-                IntPtr hdc2 = compatibleDc.ObjectSelect(hbitmap);
-                if (this.DrawMode == TabDrawMode.Normal)
-                {
-                    using (Graphics graphics2 = Graphics.FromHdc(compatibleDc))
-                        this.OnDrawItem(new DrawItemEventArgs(graphics2, this.Font, rect, id, DrawItemState.Default));
-                }
-                hdc1.BitBlock(0, 0, rect.Width, rect.Height, compatibleDc, 0, 0, 13369376);
-                hdc2.ObjectSelect(hbitmap);
-                compatibleDc.DeviceContextDelete();
-                hbitmap.ObjectDelete();
-                graphics1.ReleaseHdc(hdc1);
-                graphics1.Flush(FlushIntention.Sync);
-            }
-            switch (this.Alignment)
-            {
-                case TabAlignment.Left:
-                    tabBaseBitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                    break;
-                case TabAlignment.Right:
-                    tabBaseBitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                    break;
-            }
-            Rectangle tabRect = this.GetTabRect(id);
-            if (id == this.SelectedIndex && this.Appearance == TabAppearance.Normal)
-                tabRect.Inflate(2, 2);
-            if (this.DrawMode == TabDrawMode.OwnerDrawFixed)
-            {
-                bool flag = this.RightToLeft == RightToLeft.Yes && this.RightToLeftLayout;
-                if (flag)
-                    tabBaseBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                IntPtr hbitmap = tabBaseBitmap.GetHbitmap();
-                using (Graphics graphics1 = Graphics.FromImage((Image)tabBaseBitmap))
+                Rectangle rect = new Rectangle(Point.Empty, tabBaseBitmap.Size);
+                using (Graphics graphics1 = Graphics.FromImage(tabBaseBitmap))
                 {
                     IntPtr hdc1 = graphics1.GetHdc();
+                    IntPtr hbitmap = tabBaseBitmap.GetHbitmap();
                     IntPtr compatibleDc = hdc1.DeviceContextCreateCompatible();
                     IntPtr hdc2 = compatibleDc.ObjectSelect(hbitmap);
-                    Graphics graphics2 = Graphics.FromHdc(compatibleDc);
-                    graphics2.TranslateTransform((float)-tabRect.Left, (float)-tabRect.Top);
-                    this.OnDrawItem(new DrawItemEventArgs(graphics2, this.Font, tabRect, id, DrawItemState.Default));
-                    hdc1.BitBlock(0, 0, tabRect.Width, tabRect.Height, compatibleDc, 0, 0, 13369376);
-                    graphics2.ResetTransform();
+                    if (this.DrawMode == TabDrawMode.Normal)
+                    {
+                        using (Graphics graphics2 = Graphics.FromHdc(compatibleDc))
+                        {
+                            this.OnDrawItem(new DrawItemEventArgs(graphics2, this.Font, rect, id, DrawItemState.Default));
+                        }
+                    }
+                    hdc1.BitBlock(0, 0, rect.Width, rect.Height, compatibleDc, 0, 0, 13369376);
                     hdc2.ObjectSelect(hbitmap);
-                    graphics2.Dispose();
-                    compatibleDc.ObjectDelete();
+                    hdc2.ObjectDelete();
+                    compatibleDc.DeviceContextDelete();
+                    hbitmap.ObjectDelete();
                     graphics1.ReleaseHdc(hdc1);
+                    graphics1.Flush(FlushIntention.Sync);
                 }
-                hbitmap.ObjectDelete();
-                if (flag)
-                    tabBaseBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
-            }
-            graphics.DrawImage((Image)tabBaseBitmap, tabRect);
-            tabBaseBitmap.Dispose();
-            if (this.Appearance == TabAppearance.FlatButtons)
-            {
-                using (Pen pen = new Pen(this.BackColor.Darken(25)))
+                switch (this.Alignment)
                 {
-                    graphics.DrawLine(pen, tabRect.Right + 4, tabRect.Top, tabRect.Right + 4, tabRect.Bottom);
-                    pen.Color = this.BackColor.Lighten(80);
-                    graphics.DrawLine(pen, tabRect.Right + 5, tabRect.Top, tabRect.Right + 5, tabRect.Bottom);
+                    case TabAlignment.Left:
+                        tabBaseBitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                        break;
+                    case TabAlignment.Right:
+                        tabBaseBitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                        break;
                 }
+                Rectangle tabRect = this.GetTabRect(id);
+                if (id == this.SelectedIndex && this.Appearance == TabAppearance.Normal)
+                    tabRect.Inflate(2, 2);
+                if (this.DrawMode == TabDrawMode.OwnerDrawFixed)
+                {
+                    bool flag = this.RightToLeft == RightToLeft.Yes && this.RightToLeftLayout;
+                    if (flag)
+                        tabBaseBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    IntPtr hbitmap = tabBaseBitmap.GetHbitmap();
+                    using (Graphics graphics1 = Graphics.FromImage(tabBaseBitmap))
+                    {
+                        IntPtr hdc1 = graphics1.GetHdc();
+                        IntPtr compatibleDc = hdc1.DeviceContextCreateCompatible();
+                        IntPtr hdc2 = compatibleDc.ObjectSelect(hbitmap);
+                        using (Graphics graphics2 = Graphics.FromHdc(compatibleDc))
+                        {
+                            graphics2.TranslateTransform((float)-tabRect.Left, (float)-tabRect.Top);
+                            this.OnDrawItem(new DrawItemEventArgs(graphics2, this.Font, tabRect, id, DrawItemState.Default));
+                        }
+                        hdc1.BitBlock(0, 0, tabRect.Width, tabRect.Height, compatibleDc, 0, 0, 13369376);
+                        hdc2.ObjectSelect(hbitmap);
+                        hdc2.ObjectDelete();
+                        compatibleDc.ObjectDelete();
+                        graphics1.ReleaseHdc(hdc1);
+                    }
+                    hbitmap.ObjectDelete();
+                    if (flag)
+                        tabBaseBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                }
+                graphics.DrawImage(tabBaseBitmap, tabRect);
+
+                if (this.Appearance == TabAppearance.FlatButtons)
+                {
+                    using (Pen pen = new Pen(this.BackColor.Darken(25)))
+                    {
+                        graphics.DrawLine(pen, tabRect.Right + 4, tabRect.Top, tabRect.Right + 4, tabRect.Bottom);
+                        pen.Color = this.BackColor.Lighten(80);
+                        graphics.DrawLine(pen, tabRect.Right + 5, tabRect.Top, tabRect.Right + 5, tabRect.Bottom);
+                    }
+                }
+                tabRect.Inflate(-2, -2);
+                if (this.Focused && this.ShowFocusCues && id == this.SelectedIndex)
+                    ControlPaint.DrawFocusRectangle(graphics, tabRect);
+                graphics.Flush(FlushIntention.Sync);
             }
-            tabRect.Inflate(-2, -2);
-            if (this.Focused && this.ShowFocusCues && id == this.SelectedIndex)
-                ControlPaint.DrawFocusRectangle(graphics, tabRect);
-            graphics.Flush(FlushIntention.Sync);
         }
         /// <summary>
         /// 
@@ -926,7 +938,7 @@ namespace SBRW.Launcher.Core.Theme
                 return;
             if (this.VisualStylesEnabled)
             {
-                new VisualStyleRenderer(this.GetVisualStyleElement(id)).DrawBackground((IDeviceContext)g, r);
+                new VisualStyleRenderer(this.GetVisualStyleElement(id)).DrawBackground(g, r);
             }
             else
             {
@@ -943,7 +955,7 @@ namespace SBRW.Launcher.Core.Theme
                     rect.Inflate(-2, -2);
                     rect.Height += 2;
                     using (SolidBrush solidBrush = new SolidBrush(color1))
-                        g.FillRectangle((Brush)solidBrush, rect);
+                        g.FillRectangle(solidBrush, rect);
                 }
                 using (Pen pen = new Pen(color3))
                 {
@@ -1032,7 +1044,7 @@ namespace SBRW.Launcher.Core.Theme
             Color color4 = flag ? color1.Lighten(40) : color1.Darken(25);
             Color color5 = flag ? color1.Lighten(80) : color1.Darken(40);
             using (SolidBrush solidBrush = new SolidBrush(color1))
-                g.FillRectangle((Brush)solidBrush, r);
+                g.FillRectangle(solidBrush, r);
             using (Pen pen = new Pen(color3))
             {
                 switch (this.Alignment)
@@ -1119,7 +1131,7 @@ namespace SBRW.Launcher.Core.Theme
             Color color4 = flag ? color1.Lighten(40) : color1.Darken(25);
             Color color5 = flag ? color1.Lighten(80) : color1.Darken(25);
             using (SolidBrush solidBrush = new SolidBrush(color1))
-                g.FillRectangle((Brush)solidBrush, r);
+                g.FillRectangle(solidBrush, r);
             if (tabPage == this.TabWithFocus || id == this.SelectedIndex || id == this.HotTabID && this.HotTrack)
             {
                 using (Pen pen = new Pen(color3))
@@ -1228,7 +1240,7 @@ namespace SBRW.Launcher.Core.Theme
                 }
                 if (this.VisualStylesEnabled)
                 {
-                    new VisualStyleRenderer(VisualStyleElement.Tab.Pane.Normal).DrawBackground((IDeviceContext)graphics, displayRectangle1);
+                    new VisualStyleRenderer(VisualStyleElement.Tab.Pane.Normal).DrawBackground(graphics, displayRectangle1);
                 }
                 else
                 {
@@ -1253,9 +1265,9 @@ namespace SBRW.Launcher.Core.Theme
                         if (this.Alignment == TabAlignment.Left)
                             ++displayRectangle2.X;
                     }
-                    Color color1 = this.SelectedIndex == -1 ? this.BackColor : (this.SelectedTab.UseVisualStyleBackColor ? Control.DefaultBackColor : this.SelectedTab.BackColor);
+                    Color color1 = this.SelectedIndex == -1 ? this.BackColor : (this.SelectedTab.UseVisualStyleBackColor ? DefaultBackColor : this.SelectedTab.BackColor);
                     using (SolidBrush solidBrush = new SolidBrush(color1))
-                        graphics.FillRectangle((Brush)solidBrush, displayRectangle2);
+                        graphics.FillRectangle(solidBrush, displayRectangle2);
                     Color color2 = color1.Lighten(40);
                     Color color3 = color1.Lighten(80);
                     Color color4 = color1.Darken(25);
@@ -1336,78 +1348,92 @@ namespace SBRW.Launcher.Core.Theme
             Rectangle tabRect = this.GetTabRect(id);
             if (this.Appearance == TabAppearance.Normal && id == this.SelectedIndex)
                 tabRect.Inflate(2, 2);
-            Bitmap bitmap1 = new Bitmap(tabRect.Width, tabRect.Height, PixelFormat.Format32bppPArgb);
-            using (Graphics graphics = Graphics.FromImage((Image)bitmap1))
+            using (Bitmap bitmap1 = new Bitmap(tabRect.Width, tabRect.Height, PixelFormat.Format32bppPArgb))
             {
-                GraphicsContainer container = graphics.BeginContainer();
-                if (this.TabIsPartiallyTransparent(id) && (this.BackColor.A < byte.MaxValue || !this.UseBackColorBehindTabs))
+                using (Graphics graphics = Graphics.FromImage(bitmap1))
                 {
-                    if (this.BufferImage == null)
-                        this.DrawBufferImage();
-                    if (this.BufferImage != null)
-                        graphics.DrawImage((Image)this.BufferImage, 0, 0, tabRect, GraphicsUnit.Pixel);
+                    GraphicsContainer container = graphics.BeginContainer();
+                    if (this.TabIsPartiallyTransparent(id) && (this.BackColor.A < byte.MaxValue || !this.UseBackColorBehindTabs))
+                    {
+                        if (this.BufferImage == null)
+                            this.DrawBufferImage();
+                        if (this.BufferImage != null)
+                            graphics.DrawImage(this.BufferImage, 0, 0, tabRect, GraphicsUnit.Pixel);
+                    }
+                    else
+                        graphics.Clear(this.BackColor);
+
+                    graphics.EndContainer(container);
+                    graphics.Flush(FlushIntention.Sync);
                 }
-                else
-                    graphics.Clear(this.BackColor);
-                graphics.EndContainer(container);
-                graphics.Flush(FlushIntention.Sync);
-            }
-            switch (this.Alignment)
-            {
-                case TabAlignment.Bottom:
-                    bitmap1.RotateFlip(RotateFlipType.Rotate180FlipX);
-                    break;
-                case TabAlignment.Left:
-                    bitmap1.RotateFlip(RotateFlipType.Rotate90FlipX);
-                    break;
-                case TabAlignment.Right:
-                    bitmap1.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                    break;
-            }
-            Bitmap bitmap2 = new Bitmap((Image)bitmap1);
-            using (Graphics g = Graphics.FromImage((Image)bitmap2))
-            {
-                GraphicsContainer container = g.BeginContainer();
-                switch (this.Appearance)
+                switch (this.Alignment)
                 {
-                    case TabAppearance.Buttons:
-                        this.PaintButtonTab(g, new Rectangle(Point.Empty, bitmap2.Size), id);
+                    case TabAlignment.Bottom:
+                        bitmap1.RotateFlip(RotateFlipType.Rotate180FlipX);
                         break;
-                    case TabAppearance.FlatButtons:
-                        this.PaintFlatTab(g, new Rectangle(Point.Empty, bitmap2.Size), id);
+                    case TabAlignment.Left:
+                        bitmap1.RotateFlip(RotateFlipType.Rotate90FlipX);
                         break;
-                    default:
-                        this.Paint3DTab(g, new Rectangle(Point.Empty, bitmap2.Size), id);
+                    case TabAlignment.Right:
+                        bitmap1.RotateFlip(RotateFlipType.Rotate270FlipNone);
                         break;
                 }
-                g.EndContainer(container);
-                g.Flush(FlushIntention.Sync);
+                Bitmap bitmap2 = new Bitmap(bitmap1);
+                using (Graphics g = Graphics.FromImage(bitmap2))
+                {
+                    GraphicsContainer container = g.BeginContainer();
+                    switch (this.Appearance)
+                    {
+                        case TabAppearance.Buttons:
+                            this.PaintButtonTab(g, new Rectangle(Point.Empty, bitmap2.Size), id);
+                            break;
+                        case TabAppearance.FlatButtons:
+                            this.PaintFlatTab(g, new Rectangle(Point.Empty, bitmap2.Size), id);
+                            break;
+                        default:
+                            this.Paint3DTab(g, new Rectangle(Point.Empty, bitmap2.Size), id);
+                            break;
+                    }
+                    g.EndContainer(container);
+                    g.Flush(FlushIntention.Sync);
+                }
+                if (this.Alignment == TabAlignment.Bottom)
+                    bitmap2.RotateFlip(RotateFlipType.Rotate180FlipX);
+                else if (this.Alignment == TabAlignment.Left)
+                    bitmap2.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                if (this.RightToLeftLayout && this.RightToLeft == RightToLeft.Yes && this.DrawMode == TabDrawMode.Normal)
+                    bitmap2.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                return bitmap2;
             }
-            if (this.Alignment == TabAlignment.Bottom)
-                bitmap2.RotateFlip(RotateFlipType.Rotate180FlipX);
-            else if (this.Alignment == TabAlignment.Left)
-                bitmap2.RotateFlip(RotateFlipType.RotateNoneFlipX);
-            if (this.RightToLeftLayout && this.RightToLeft == RightToLeft.Yes && this.DrawMode == TabDrawMode.Normal)
-                bitmap2.RotateFlip(RotateFlipType.RotateNoneFlipX);
-            return bitmap2;
         }
         /// <summary>
         /// 
         /// </summary>
         private void DrawBufferImage()
         {
-            if (this.Parent == null || !this.Created || (this.Width <= 0 || this.Height <= 0))
+            if (this.Parent == default || !this.Created || (this.Width <= 0 || this.Height <= 0))
                 return;
-            if (this.BufferImage == null || !this.BufferImage.Size.Equals((object)this.Size))
+
+            if (this.BufferImage == default || !this.BufferImage.Size.Equals(this.Size))
+            {
+                if (this.BufferImage != default)
+                {
+                    BufferImage.Dispose();
+                }
+
                 this.BufferImage = new Bitmap(this.Width, this.Height, PixelFormat.Format32bppPArgb);
-            using (Graphics graphics = Graphics.FromImage((Image)this.BufferImage))
+            }
+
+            using (Graphics graphics = Graphics.FromImage(this.BufferImage))
             {
                 GraphicsContainer container = graphics.BeginContainer();
                 Rectangle bounds = this.Bounds;
                 graphics.TranslateTransform((float)-this.Left, (float)-this.Top);
-                PaintEventArgs e = new PaintEventArgs(graphics, bounds);
-                this.InvokePaintBackground(this.Parent, e);
-                this.InvokePaint(this.Parent, e);
+                using (PaintEventArgs e = new PaintEventArgs(graphics, bounds))
+                {
+                    this.InvokePaintBackground(this.Parent, e);
+                    this.InvokePaint(this.Parent, e);
+                }
                 graphics.ResetTransform();
                 graphics.EndContainer(container);
                 graphics.Flush(FlushIntention.Sync);
@@ -1431,7 +1457,7 @@ namespace SBRW.Launcher.Core.Theme
                         return tabPage;
                 }
             }
-            return (TabPage)null;
+            return default;
         }
         /// <summary>
         /// 
@@ -1448,7 +1474,7 @@ namespace SBRW.Launcher.Core.Theme
                         return tabPage;
                 }
             }
-            return (TabPage)null;
+            return default;
         }
         /// <summary>
         /// 
@@ -1490,7 +1516,7 @@ namespace SBRW.Launcher.Core.Theme
                     }
                 }
             }
-            return (TabPage)null;
+            return default;
         }
         /// <summary>
         /// 
@@ -1500,8 +1526,15 @@ namespace SBRW.Launcher.Core.Theme
         private TabPage TabFromPoint(Point point)
         {
             Flags_TabControl.TCHITTESTINFO lParam = new Flags_TabControl.TCHITTESTINFO(point.X, point.Y);
-            int int32 = this.Handle.MessageSend(4877, IntPtr.Zero, ref lParam).ToInt32();
-            return int32 >= 0 && int32 < this.TabCount ? this.TabPages[int32] : (TabPage)null;
+            IntPtr int32 = this.Handle.MessageSend(4877, IntPtr.Zero, ref lParam);
+            try
+            {
+                return int32.ToInt32() >= 0 && int32.ToInt32() < this.TabCount ? this.TabPages[int32.ToInt32()] : default;
+            }
+            finally
+            {
+                int32.ObjectDelete();
+            }
         }
         /// <summary>
         /// 
@@ -1535,17 +1568,25 @@ namespace SBRW.Launcher.Core.Theme
             hdc.TextColorSet(crColor);
             hdc.BackgroundModeSet(nBkMode);
             hdc.ObjectSelect(hgdiobj);
+            hgdiobj.ObjectDelete();
             hfont.ObjectDelete();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="page"></param>
         private void SetDoubleBuffered(TabPage page)
         {
             PropertyInfo property = page.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
-            if (property == (PropertyInfo)null)
+            if (property == default)
                 return;
             property.SetValue((object)page, (object)this.myDoubleBufferTabpages, (object[])null);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <returns></returns>
         private bool HandleArrowKeys(Keys keys)
         {
             if (this.Appearance == TabAppearance.Normal)

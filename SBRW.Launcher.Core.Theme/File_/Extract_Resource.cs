@@ -1,12 +1,21 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Text;
 
 namespace SBRW.Launcher.Core.Theme.File_
 {
-    internal class Extract_Resource
+    /// <summary>
+    /// 
+    /// </summary>
+    internal static class Extract_Resource
     {
-        internal static byte[] AsByte(string File_Name)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="File_Name"></param>
+        /// <returns></returns>
+        internal static byte[] To_Byte(this string File_Name)
         {
             if (string.IsNullOrWhiteSpace(File_Name))
             {
@@ -34,6 +43,35 @@ namespace SBRW.Launcher.Core.Theme.File_
                 catch (Exception)
                 {
                     return default;
+                }
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="File_Name"></param>
+        /// <returns></returns>
+        internal static string ByteToString(this string File_Name)
+        {
+            if (string.IsNullOrWhiteSpace(File_Name))
+            {
+                return default;
+            }
+            else
+            {
+                try
+                {
+                    using (Stream SVG_Stream = new MemoryStream(File_Name.To_Byte()))
+                    {
+                        using (StreamReader SVG_Reader = new StreamReader(SVG_Stream, Encoding.UTF8))
+                        {
+                            return SVG_Reader.ReadToEnd();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    return string.Empty;
                 }
             }
         }
