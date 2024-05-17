@@ -58,6 +58,10 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
+        internal const string SVG_Helmet = $"{SBRW_Resources_Root_Path}SVGs.Icon_Helmet.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
         internal const string SVG_Home = $"{SBRW_Resources_Root_Path}SVGs.Icon_Home.svg";
         /// <summary>
         /// At Compilee Time Constant Static String File
@@ -70,7 +74,7 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
-        internal const string SVG_Save = $"{SBRW_Resources_Root_Path}SVGs.Icon_Save_Alt.svg";
+        internal const string SVG_Save = $"{SBRW_Resources_Root_Path}SVGs.Icon_Save.svg";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
@@ -174,6 +178,14 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         public static string SvG_Globe()
         {
             return SVG_Globe.ByteToString();
+        }
+        /// <summary>
+        /// Helmet SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Helmet SVG File as a String</returns>
+        public static string SvG_Helmet()
+        {
+            return SVG_Helmet.ByteToString();
         }
         /// <summary>
         /// Home SVG File
