@@ -11,30 +11,6 @@ namespace SBRW.Launcher.Core.Theme
         /// <summary>
         /// 
         /// </summary>
-        public static Image Text_Border_Email { get; set; } = Image_Converter.Value(Properties.Resources.email_text_border, 0);
-        /// <summary>
-        /// 
-        /// </summary>
-        public static Image Text_Border_Email_Error { get; set; } = Image_Converter.Value(Properties.Resources.email_text_border_error, 3);
-        /// <summary>
-        /// 
-        /// </summary>
-        public static Image Text_Border_Password { get; set; } = Image_Converter.Value(Properties.Resources.password_text_border, 0);
-        /// <summary>
-        /// 
-        /// </summary>
-        public static Image Text_Border_Password_Error { get; set; } = Image_Converter.Value(Properties.Resources.password_text_border_error, 3);
-        /// <summary>
-        /// 
-        /// </summary>
-        public static Image Text_Border_Ticket { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border, 0);
-        /// <summary>
-        /// 
-        /// </summary>
-        public static Image Text_Border_Ticket_Error { get; set; } = Image_Converter.Value(Properties.Resources.ticket_text_border_error, 3);
-        /// <summary>
-        /// 
-        /// </summary>
         public static Image Information_Window { get; set; } = Image_Converter.Value(Properties.Resources.information_window_outline, 0);
         /// <summary>
         /// 
