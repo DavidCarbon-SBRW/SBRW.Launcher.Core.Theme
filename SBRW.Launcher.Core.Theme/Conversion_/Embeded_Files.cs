@@ -62,11 +62,19 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
+        internal const string SVG_Offline = $"{SBRW_Resources_Root_Path}SVGs.Icon_Offline.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
         internal const string SVG_Plug_Connect = $"{SBRW_Resources_Root_Path}SVGs.Icon_Plug_Disconnected.svg";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
         internal const string SVG_Save = $"{SBRW_Resources_Root_Path}SVGs.Icon_Save_Alt.svg";
+        /// <summary>
+        /// At Compilee Time Constant Static String File
+        /// </summary>
+        internal const string SVG_Server = $"{SBRW_Resources_Root_Path}SVGs.Icon_Server.svg";
         /// <summary>
         /// At Compilee Time Constant Static String File
         /// </summary>
@@ -122,96 +130,112 @@ namespace SBRW.Launcher.Core.Theme.Conversion_
         /// <summary>
         /// Check Engine SVG File
         /// </summary>
-        /// <returns>Embeded Resource Check Engine SVG File in Bytes</returns>
-        public static string SVG_Check_Engine_Bytes()
+        /// <returns>Embeded Resource Check Engine SVG File as a String</returns>
+        public static string SvG_Check_Engine()
         {
             return SVG_Check_Engine.ByteToString();
         }
         /// <summary>
         /// Cross SVG File
         /// </summary>
-        /// <returns>Embeded Resource Cross SVG File in Bytes</returns>
-        public static string SVG_Cross_Bytes()
+        /// <returns>Embeded Resource Cross SVG File as a String</returns>
+        public static string SvG_Cross()
         {
             return SVG_Cross.ByteToString();
         }
         /// <summary>
         /// Discord SVG File
         /// </summary>
-        /// <returns>Embeded Resource Discord SVG File in Bytes</returns>
-        public static string SVG_Discord_Bytes()
+        /// <returns>Embeded Resource Discord SVG File as a String</returns>
+        public static string SvG_Discord()
         {
             return SVG_Discord.ByteToString();
         }
         /// <summary>
         /// Facebook SVG File
         /// </summary>
-        /// <returns>Embeded Resource Facebook SVG File in Bytes</returns>
-        public static string SVG_Facebook_Bytes()
+        /// <returns>Embeded Resource Facebook SVG File as a String</returns>
+        public static string SvG_Facebook()
         {
             return SVG_Facebook.ByteToString();
         }
         /// <summary>
         /// Gear SVG File
         /// </summary>
-        /// <returns>Embeded Resource Gear SVG File in Bytes</returns>
-        public static string SVG_Gear_Bytes()
+        /// <returns>Embeded Resource Gear SVG File as a String</returns>
+        public static string SvG_Gear()
         {
             return SVG_Gear.ByteToString();
         }
         /// <summary>
         /// Globe SVG File
         /// </summary>
-        /// <returns>Embeded Resource Globe SVG File in Bytes</returns>
-        public static string SVG_Globe_Bytes()
+        /// <returns>Embeded Resource Globe SVG File as a String</returns>
+        public static string SvG_Globe()
         {
             return SVG_Globe.ByteToString();
         }
         /// <summary>
         /// Home SVG File
         /// </summary>
-        /// <returns>Embeded Resource Home SVG File in Bytes</returns>
-        public static string SVG_Home_Bytes()
+        /// <returns>Embeded Resource Home SVG File as a String</returns>
+        public static string SvG_Home()
         {
             return SVG_Home.ByteToString();
         }
         /// <summary>
+        /// Offline SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Offline SVG File as a String</returns>
+        public static string SvG_Offline()
+        {
+            return SVG_Offline.ByteToString();
+        }
+        /// <summary>
         /// Plug Connect SVG File
         /// </summary>
-        /// <returns>Embeded Resource Plug Connect SVG File in Bytes</returns>
-        public static string SVG_Plug_Connect_Bytes()
+        /// <returns>Embeded Resource Plug Connect SVG File as a String</returns>
+        public static string SvG_Plug_Connect()
         {
             return SVG_Plug_Connect.ByteToString();
         }
         /// <summary>
         /// Save SVG File
         /// </summary>
-        /// <returns>Embeded Resource Save SVG File in Bytes</returns>
-        public static string SVG_Save_Bytes()
+        /// <returns>Embeded Resource Save SVG File as a String</returns>
+        public static string SvG_Save()
         {
             return SVG_Save.ByteToString();
         }
         /// <summary>
         /// Shield SVG File
         /// </summary>
-        /// <returns>Embeded Resource Shield SVG File in Bytes</returns>
-        public static string SVG_Shield_Bytes()
+        /// <returns>Embeded Resource Shield SVG File as a String</returns>
+        public static string SvG_Shield()
         {
             return SVG_Shield.ByteToString();
         }
         /// <summary>
+        /// Server SVG File
+        /// </summary>
+        /// <returns>Embeded Resource Server SVG File as a String</returns>
+        public static string SvG_Server()
+        {
+            return SVG_Server.ByteToString();
+        }
+        /// <summary>
         /// Twitter SVG File
         /// </summary>
-        /// <returns>Embeded Resource Twitter SVG File in Bytes</returns>
-        public static string SVG_Twitter_Bytes()
+        /// <returns>Embeded Resource Twitter SVG File as a String</returns>
+        public static string SvG_Twitter()
         {
             return SVG_Twitter.ByteToString();
         }
         /// <summary>
         /// Inputs Box SVG File
         /// </summary>
-        /// <returns>Embeded Resource Inputs Box SVG File in Bytes</returns>
-        public static string SVG_Inputs_Box_Bytes()
+        /// <returns>Embeded Resource Inputs Box SVG File as a String</returns>
+        public static string SvG_Inputs_Box()
         {
             return SVG_Inputs.ByteToString();
         }

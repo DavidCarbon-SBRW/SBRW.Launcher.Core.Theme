@@ -40,8 +40,10 @@
     <None Remove="Resources\SVGs\Icon_Gear.svg" />
     <None Remove="Resources\SVGs\Icon_Globe.svg" />
     <None Remove="Resources\SVGs\Icon_Home.svg" />
+    <None Remove="Resources\SVGs\Icon_Offline.svg" />
     <None Remove="Resources\SVGs\Icon_Plug_Disconnected.svg" />
     <None Remove="Resources\SVGs\Icon_Save_Alt.svg" />
+    <None Remove="Resources\SVGs\Icon_Server.svg" />
     <None Remove="Resources\SVGs\Icon_Shield.svg" />
     <None Remove="Resources\SVGs\Icon_Twitter.svg" />
     <None Remove="Resources\SVGs\Input_Global.svg" />
@@ -60,8 +62,10 @@
     <EmbeddedResource Include="Resources\SVGs\Icon_Gear.svg" />
     <EmbeddedResource Include="Resources\SVGs\Icon_Globe.svg" />
     <EmbeddedResource Include="Resources\SVGs\Icon_Home.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Offline.svg" />
     <EmbeddedResource Include="Resources\SVGs\Icon_Plug_Disconnected.svg" />
     <EmbeddedResource Include="Resources\SVGs\Icon_Save_Alt.svg" />
+    <EmbeddedResource Include="Resources\SVGs\Icon_Server.svg" />
     <EmbeddedResource Include="Resources\SVGs\Icon_Shield.svg" />
     <EmbeddedResource Include="Resources\SVGs\Icon_Twitter.svg" />
     <EmbeddedResource Include="Resources\SVGs\Input_Global.svg" />
