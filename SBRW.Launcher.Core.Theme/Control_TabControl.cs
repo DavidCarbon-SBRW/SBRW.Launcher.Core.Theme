@@ -439,42 +439,70 @@ namespace SBRW.Launcher.Core.Theme
         /// <param name="e"></param>
         protected override void OnPaintBackground(PaintEventArgs e)
         {
+            /* Ensure the dimensions are valid */
             if (this.Width <= 0 || this.Height <= 0)
                 return;
-            e.Graphics.Flush(FlushIntention.Sync);
-            using (Bitmap bitmap = new Bitmap(this.Width, this.Height, PixelFormat.Format32bppPArgb))
+            /* Handle transparent background */
+            if (this.BackColor == Color.Transparent)
             {
-                using (Graphics graphics = Graphics.FromImage(bitmap))
-                {
-                    if (this.BufferImage != null)
-                        graphics.DrawImage(this.BufferImage, Point.Empty);
-                    Rectangle rect = this.ClientRectangle;
-                    if (!this.myUseBackColorBehindTabs)
-                        rect = this.DisplayRectangle;
-                    using (SolidBrush solidBrush = new SolidBrush(this.BackColor))
-                        graphics.FillRectangle(solidBrush, rect);
-                    this.DrawBorder(graphics);
-                    for (int id = 0; id < this.TabCount; ++id)
-                    {
-                        if (id != this.SelectedIndex)
-                            this.PaintTab(graphics, id);
-                    }
-                    if (this.SelectedIndex != -1)
-                        this.PaintTab(graphics, this.SelectedIndex);
-                    IntPtr hbitmap = bitmap.GetHbitmap();
-                    IntPtr hdc1 = graphics.GetHdc();
-                    IntPtr compatibleDc = hdc1.DeviceContextCreateCompatible();
-                    IntPtr hdc2 = compatibleDc.ObjectSelect(hbitmap);
-                    IntPtr hdc3 = e.Graphics.GetHdc();
-                    hdc3.BitBlock(0, 0, this.Width, this.Height, compatibleDc, 0, 0, 13369376);
-                    e.Graphics.ReleaseHdc(hdc3);
-                    hdc3.ObjectDelete();
-                    hdc2.ObjectSelect(hbitmap);
-                    compatibleDc.DeviceContextDelete();
-                    graphics.ReleaseHdc(hdc1);
-                    hbitmap.ObjectDelete();
-                }
+                IntPtr hdc = e.Graphics.GetHdc();
+                Rectangle rec = new Rectangle(e.ClipRectangle.Left,
+                    e.ClipRectangle.Top, e.ClipRectangle.Width, e.ClipRectangle.Height);
+                this.Handle.ThemeParentBackground(hdc, ref rec);
+                e.Graphics.ReleaseHdc(hdc);
             }
+            else
+            {
+                /* Use the base background painting for non-transparent background */
+                base.OnPaintBackground(e);
+            }
+            /* Flush the graphics to synchronize drawing */
+            e.Graphics.Flush(FlushIntention.Sync);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            /* Ensure the dimensions are valid */
+            if (this.Width <= 0 || this.Height <= 0)
+                return;
+            /* Handle transparent background */
+            if (this.BackColor == Color.Transparent)
+            {
+                IntPtr hdc = e.Graphics.GetHdc();
+                Rectangle rec = new Rectangle(e.ClipRectangle.Left,
+                    e.ClipRectangle.Top, e.ClipRectangle.Width, e.ClipRectangle.Height);
+                this.Handle.ThemeParentBackground(hdc, ref rec);
+                e.Graphics.ReleaseHdc(hdc);
+            }
+            else
+            {
+                /* Use the base background painting for non-transparent background */
+                base.OnPaintBackground(e);
+            }
+            /* Draw the buffer image if available */
+            if (this.BufferImage != null)
+                e.Graphics.DrawImage(this.BufferImage, Point.Empty);
+            /* Determine the rectangle to fill */
+            Rectangle rect = this.ClientRectangle;
+            if (!this.myUseBackColorBehindTabs)
+                rect = this.DisplayRectangle;
+            /* Fill the background color */
+            using (SolidBrush solidBrush = new SolidBrush(this.BackColor))
+                e.Graphics.FillRectangle(solidBrush, rect);
+            /* Draw the border */
+            this.DrawBorder(e.Graphics);
+            /* Paint the tabs, except the selected one */
+            for (int id = 0; id < this.TabCount; ++id)
+            {
+                if (id != this.SelectedIndex)
+                    this.PaintTab(e.Graphics, id);
+            }
+            /* Paint the selected tab */
+            if (this.SelectedIndex != -1)
+                this.PaintTab(e.Graphics, this.SelectedIndex);
         }
         /// <summary>
         /// 
@@ -821,17 +849,31 @@ namespace SBRW.Launcher.Core.Theme
             base.WndProc(ref m);
         }
         /// <summary>
-        /// 
+        /// This <see href="https://stackoverflow.com/a/15828303/17539426">member </see>overrides 
+        /// <see cref="System.Windows.Forms.Control.CreateParams"/>.
         /// </summary>
+        /// <returns>
+        /// A <see cref="System.Windows.Forms.CreateParams"/> that contains the required 
+        /// creation parameters when the handle to the control is created.
+        /// </returns>
+        /// <remarks><i>Use with care, as it may cause strange effects</i></remarks>
         protected override CreateParams CreateParams
         {
             get
             {
                 const int WS_EX_LAYOUTRTL = 0x400000;
                 const int WS_EX_NOINHERITLAYOUT = 0x100000;
+                const int WS_EX_COMPOSITED = 0x02000000;
                 CreateParams cp = base.CreateParams;
                 if (this.TabsMirror)
-                    cp.ExStyle = cp.ExStyle | WS_EX_LAYOUTRTL | WS_EX_NOINHERITLAYOUT;
+                {
+                    cp.ExStyle = cp.ExStyle | WS_EX_LAYOUTRTL | WS_EX_NOINHERITLAYOUT | WS_EX_COMPOSITED;
+                }
+                else
+                {
+                    cp.ExStyle |= WS_EX_COMPOSITED;
+                }
+
                 return cp;
             }
         }
