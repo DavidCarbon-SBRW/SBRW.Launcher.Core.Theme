@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 #if NETSTANDARD
 using Vanara.PInvoke;
@@ -64,6 +65,36 @@ namespace SBRW.Launcher.Core.Theme.Required.DLL.UxTheme_
         public static IntPtr WindowThemeGet(this IntPtr hWnd)
         {
             return GetWindowTheme(hWnd);
+        }
+        /// <summary>
+        /// Draws the part of a parent control that is covered by a partially-transparent or alpha-blended child control.
+        /// </summary>
+        /// <param name="hWnd">The child control.</param>
+        /// <param name="hdc">The child control's DC.</param>
+        /// <param name="pRect">
+        /// The area to be drawn. The rectangle is in the child window's coordinates. 
+        /// If this parameter is NULL, the area to be drawn includes the entire area occupied by the child control.
+        /// </param>
+        /// <returns>
+        /// If this function succeeds, it returns S_OK. Otherwise, it returns an HRESULT error code.
+        /// </returns>
+        [DllImport("uxtheme", ExactSpelling = true)]
+        public extern static Int32 DrawThemeParentBackground(IntPtr hWnd, IntPtr hdc, ref Rectangle pRect);
+        /// <summary>
+        /// Draws the part of a parent control that is covered by a partially-transparent or alpha-blended child control.
+        /// </summary>
+        /// <param name="hWnd">The child control.</param>
+        /// <param name="hdc">The child control's DC.</param>
+        /// <param name="pRect">
+        /// The area to be drawn. The rectangle is in the child window's coordinates. 
+        /// If this parameter is NULL, the area to be drawn includes the entire area occupied by the child control.
+        /// </param>
+        /// <returns>
+        /// If this function succeeds, it returns S_OK. Otherwise, it returns an HRESULT error code.
+        /// </returns>
+        public static Int32 ThemeParentBackground(this IntPtr hWnd, IntPtr hdc, ref Rectangle pRect)
+        {
+            return DrawThemeParentBackground(hWnd, hdc, ref pRect);
         }
     }
 }
