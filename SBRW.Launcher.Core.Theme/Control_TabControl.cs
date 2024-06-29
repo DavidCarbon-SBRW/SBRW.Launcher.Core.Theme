@@ -494,15 +494,22 @@ namespace SBRW.Launcher.Core.Theme
                 e.Graphics.FillRectangle(solidBrush, rect);
             /* Draw the border */
             this.DrawBorder(e.Graphics);
-            /* Paint the tabs, except the selected one */
-            for (int id = 0; id < this.TabCount; ++id)
+            /* If Hide Tabs is Enabled, do not Draw Tabs 
+             * Otherwise it causes a graphical glitch of being drawn still - DavidCarbon */
+            if (!this.TabsHide)
             {
-                if (id != this.SelectedIndex)
-                    this.PaintTab(e.Graphics, id);
+                /* Paint the tabs, except the selected one */
+                for (int id = 0; id < this.TabCount; ++id)
+                {
+                    if (id != this.SelectedIndex)
+                        this.PaintTab(e.Graphics, id);
+                }
+                /* Paint the selected tab */
+                if (this.SelectedIndex != -1)
+                    this.PaintTab(e.Graphics, this.SelectedIndex);
             }
-            /* Paint the selected tab */
-            if (this.SelectedIndex != -1)
-                this.PaintTab(e.Graphics, this.SelectedIndex);
+            /* Flush the graphics to synchronize drawing */
+            e.Graphics.Flush(FlushIntention.Sync);
         }
         /// <summary>
         /// 
