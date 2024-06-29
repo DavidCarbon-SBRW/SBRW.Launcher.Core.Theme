@@ -27,44 +27,34 @@ namespace SBRW.Launcher.Core.Theme
             }
             else
             {
-                FileStream The_Image = default;
-
                 try
                 {
-                    The_Image = File.Open(Image_Location, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    Bitmap The_Viewer = default;
-
-                    try
+                    using (FileStream The_Image = File.Open(Image_Location, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
                     {
-                        The_Viewer = new Bitmap(The_Image);
-                        return GreyScale(The_Viewer);
-                    }
-                    catch (Exception)
-                    {
-                        /* Error #2 */
-                        return default;
-                    }
-                    finally
-                    {
-                        if (The_Viewer != default)
+                        try
                         {
-                            The_Viewer.Dispose();
+                            using (Bitmap The_Viewer = new Bitmap(The_Image))
+                            {
+                                try
+                                {
+                                    return GreyScale(The_Viewer);
+                                }
+                                catch (Exception)
+                                {
+                                    /* Error #2 */
+                                    return default;
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            return default;
                         }
                     }
                 }
                 catch (Exception)
                 {
                     return default;
-                }
-                finally
-                {
-                    if (The_Image != default)
-                    {
-                        The_Image.Close();
-                        The_Image.Dispose();
-                    }
-
-                    GC.Collect();
                 }
             }
         }
@@ -84,22 +74,16 @@ namespace SBRW.Launcher.Core.Theme
                     Bitmap New_Bitmap = new Bitmap(Image_Original.Width, Image_Original.Height);
 
                     //Get a graphics object from the new image
-                    Graphics Custom_Graphics = default;
-                    try
+                    using (Graphics Custom_Graphics = Graphics.FromImage(New_Bitmap))
                     {
-                        Custom_Graphics = Graphics.FromImage(New_Bitmap);
-
                         //Create the grayscale ColorMatrix
                         ColorMatrix colorMatrix = new ColorMatrix(new float[][]
                            { new float[] {.3f, .3f, .3f, 0, 0}, new float[] {.59f, .59f, .59f, 0, 0}, new float[]
                            {.11f, .11f, .11f, 0, 0}, new float[] {0, 0, 0, 1, 0}, new float[] {0, 0, 0, 0, 1} });
 
                         //create some image attributes
-                        ImageAttributes Image_Attributes = default;
-
-                        try
+                        using (ImageAttributes Image_Attributes = new ImageAttributes())
                         {
-                            Image_Attributes = new ImageAttributes();
                             //set the color matrix attribute
                             Image_Attributes.SetColorMatrix(colorMatrix);
 
@@ -108,21 +92,6 @@ namespace SBRW.Launcher.Core.Theme
                             Custom_Graphics.DrawImage(Image_Original, new Rectangle(0, 0, Image_Original.Width, Image_Original.Height),
                                 0, 0, Image_Original.Width, Image_Original.Height, GraphicsUnit.Pixel, Image_Attributes);
                         }
-                        finally
-                        {
-                            if (Image_Attributes != default)
-                            {
-                                Image_Attributes.Dispose();
-                            }
-                        }
-                    }
-                    finally
-                    {
-                        if (Custom_Graphics != default)
-                        {
-                            //Dispose the Graphics object
-                            Custom_Graphics.Dispose();
-                        }
                     }
 
                     return New_Bitmap;
@@ -130,10 +99,6 @@ namespace SBRW.Launcher.Core.Theme
                 catch (Exception)
                 {
                     return default;
-                }
-                finally
-                {
-                    GC.Collect();
                 }
             }
             else
@@ -147,6 +112,6 @@ namespace SBRW.Launcher.Core.Theme
     /// Image loading toolset class which corrects the bug that prevents paletted PNG images with transparency from being loaded as paletted.
     /// </summary>
     /// <remarks><i><b>Supported only on .NET-Windows and .NET Frameworks</b></i></remarks>
-    public class Bitmap_Handler { }
+    public class Image_Handler { }
 #endif
 }
